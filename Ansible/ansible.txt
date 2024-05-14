@@ -1,0 +1,164 @@
+Jenkins = Depoyment Automation
+server , software and tomcat setup automation require = Ansible
+----------------------Ansible-----------------------------------
+* Free and open source Tool 
+* Ansible is automation engine for sever creation and deployment 
+* Called Configuration Management Tool 
+Configuration = Hardware and software properties of server. 
+Management = update delete and install.
+Thanks to Maichel dehaan.
+* There is free and paid version of ansible.
+* Platform independent. 
+* Ansible works with YAML Language.
+* Ansibele dependencies is python 
+* GUI for ansible is Ansible Tower.
+Architecture 
+playbook File :
+inventory file : file contain detail of worker or (slave) node 
+-------Ansible ad-hoc command-----------------------------
+export HISTTIMEFORMAT="%F %T" == > display history with timestamp
+ansible all -a "yum install git -y"
+--------Ansible MOdules--------------------------------------
+modules work in key value pair :
+ansible all -m yum -a "name=git state=present"
+ansible all -m yum -a "name=git state=absent" (uninstall git )
+ansible all -m yum -a "name=docker.io state=present"(-m is modules)
+ansible dev -m yum -a "name=httpd state=present"
+state = present ==> install 
+state = absent  ==> uninstall
+state = latest  ==> update 
+ansible all -a "systemctl status httpd"
+ansible all -m service "name=httpd state=started"
+state = started ==>
+state = stopped
+ansible all -a "useradd nitesh"
+ansible all -m user -a "name=nites state=present"
+state = present 
+state = absent
+application.yaml = text file that contain properties of application 
+ansible all -a 
+
+
+playb00ok--= is acollection of multiple module
+
+
+
+
+tags = 
+
+--------------------------------------------------------
+- hosts: all
+  tasks: 
+    - name: install git 
+      shell: yum install git -y
+
+    - name: install maven 
+      command: yum install maven -y 
+   
+    - name: install docker 
+      raw: yum install docker -y 
+
+
+raw >> command >> shell
+
+
+Using Variables:
+
+installation.yaml
+- hosts: all
+  vars:
+     a= git
+     b= maven
+     c= docker 
+  tasks: 
+    - name: install git 
+      yum: name={{a}} state=present
+    
+    - name: install docker
+      yum: name={{c}}   state=present  
+
+    - name: install maven 
+      yum: name={{b}}  state=present
+
+
+
+
+Ansible Condition ---
+cluster = group of server
+homegenous server = same type of server , server with same type of os and flavpur 
+heteregenous serve = different type of srver , with different type of os 
+
+ansible all -m setup  
+
+
+when:  applying condition on ansible 
+
+- hosts: all 
+  tasks: 
+   - name: installing git on RehHat
+     yum: name=git state=persent
+     when: ansible_os_family = "RedHat" // install git on RedHat base OS
+
+   - name: installing git on ubuntu
+     apt: name=git state=present 
+     when: ansible_os_family = "Debian" // install git on Debian Base OS 
+   
+   - name: installing apache on ubuntu 
+     apt: name=apache2 state=present
+     when: ansible_os_family = "Debian"
+
+
+   - name: installing apache on redhat
+     yum: name=httpd state="present"
+     when: ansible_os_family = "RedHat"
+
+sed -i s/present/absent/g 
+
+==========================================================================
+
+ANSIBLE HANDLERS:
+
+HANDLERS ARE LIKE LINKED JOB(ONE JOB LINKED WITH ANOTHER ) IN JENKINS  
+
+HANDLERS: here one task is depending on another task.
+
+ex. if we want to start service like httpd we need to install it and restarting depends on installing
+
+
+- hosts: all 
+  tasks: 
+    - name: installing apache on RedHat
+      yum: name=httpd state=present
+      notify: starting apache
+  handlers: 
+    - name: starting apache
+      service: name=httpd stae=started
+
+
+
+
+sed -i 's/present/absent/g' playbook.yaml
+
+
+
+ANSIBLE vault = used to encrypt the files, playbok..
+encryption method = AES256
+
+
+
+
+
+
+
+================ANSIBLE ROLES===============
+
+ROLES
+used to divide the playb00ok into directory structures
+we can organize the palybooks
+we can encapsulate the data
+we can reduce playbook length
+
+
+
+
+

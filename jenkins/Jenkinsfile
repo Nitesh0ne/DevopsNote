@@ -1,0 +1,29 @@
+pipeline{
+    agent any 
+        stages{
+            stage('checkout'){
+                steps{
+
+                }
+            }
+            stage('test'){
+                steps{
+
+                }
+
+            }
+            stage('code quality'){
+                steps{
+
+                }
+
+            }
+            stage(){
+                steps{
+
+                }
+
+            }
+        }
+    
+}

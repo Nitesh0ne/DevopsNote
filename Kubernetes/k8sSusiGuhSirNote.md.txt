@@ -1,0 +1,24 @@
+Day 1:
+kubernetes = container orchestration tool 
+
+
+Day 2 :
+Creating Pod In Declarative Way:
+
+
+kubernetes ReplicaSet 
+Kubernetes Deployment
+
+
+
+Day 3 : 
+Kubernetes Physical Volume and services.
+
+1. Cluster IP 
+2. NodePort
+3. LoadBalancer
+4. ExternalName
+
+
+
+Persistant volume 
