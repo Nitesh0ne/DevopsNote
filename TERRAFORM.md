@@ -61,13 +61,10 @@ sudo yum -y install terraform
 ---
 
 **CODE:**
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 =======
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
-=======
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
+
+======
 vi main.tf 
 ```
 provider "aws" {
@@ -97,8 +94,6 @@ terraform state list
 
 ```terrafrom target ```: used to destroy the specific (target) resource 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 **single target:**  ```terraform destroy -target="aws_instance.one[3]"```
 
 **multi targets:**  ```terraform destroy -target="aws_instance.one[3]" -target="aws_instance.one[2]"```
@@ -106,12 +101,10 @@ terraform state list
 **single target:** ```terraform destroy -target="aws_instance.one[3]"```
 
 **multi targets:** ```terraform destroy -target="aws_instance.one[3]" -target="aws_instance.one[2]"```
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 =======
 **single target:** ```terraform destroy -target="aws_instance.one[3]"```
 
 **multi targets:** ```terraform destroy -target="aws_instance.one[3]" -target="aws_instance.one[2]"```
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 
 ### **HISTORY:**
 ```
@@ -256,16 +249,12 @@ instance_count = 3
 cat test.tfvars
 =======
 >cat test.tfvars
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 =======
 >cat test.tfvars
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 ```
 instance_type = "t2.micro"
 instance_count = 5
 ```
-<<<<<<< HEAD
-<<<<<<< HEAD
 ```
 terraform apply --auto-approve -var-file="test.tfvars"
 ```
@@ -287,7 +276,6 @@ terraform apply --auto-approve -var-file="dev.tfvars"
 
 =======
 =======
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 >cat dev.tfvars
 ```
 instance_type = "t2.medium"
@@ -303,10 +291,7 @@ terraform apply --auto-approve -var-file="dev.tfvars"
 terraform apply --auto-approve -var-file="test.tfvars"
 
 ```
-<<<<<<< HEAD
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 =======
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 ## **TERRAFORMCLI:**
 Used to pass values from cli
 IN Real-time Most of the values are passed for .tfvars file
@@ -462,8 +447,6 @@ here no need to execute the entire file.
 we can just mark the object as tainted.
 
 ``` terraform state list ```
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 ``` terraform taint <aws_instance.one >```
 
@@ -472,19 +455,15 @@ we can just mark the object as tainted.
 =======
 ``` terraform taint <aws_instance.one >```
 ``` terraform apply --auto-approve ```
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 =======
 ``` terraform taint <aws_instance.one >```
 ``` terraform apply --auto-approve ```
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 ``` terraform untaint <aws_instance.one> ```
 
 Used to recreate specific object
 In Real time some resources we need to recrete if it will work properly
 then we use taint concept
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 terraform taint recreate the particular resource 
 
 ```  terraform taint aws_instance.four ```
@@ -492,22 +471,16 @@ terraform taint recreate the particular resource
 =======
  terraform taint recreate the particular resource 
 ```  terraform taint aws_instance.four ```
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 =======
  terraform taint recreate the particular resource 
 ```  terraform taint aws_instance.four ```
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 ``` terraform taint aws_ebs_volume.three ```
 
 ## **Terraform Lifecycle**
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ```
 =======
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 =======
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 provider "aws" {
   region = "us-east-1"
 }
@@ -523,8 +496,6 @@ resource "aws_instance" "one" {
   }
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ```
 
 **prevent Destory :** It will no destory the resources
@@ -534,16 +505,12 @@ resource "aws_instance" "one" {
 **Depends on :**  
 =======
 =======
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 **prevent Destory : ** It will no destory the resources
 
 ** Ignore Changes : ** It will not the replicate the changes done to a resources
 
 ** Depends on : **  
-<<<<<<< HEAD
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 =======
->>>>>>> a69479b8e3597b2b5355ba22da296027fd7907f3
 
 
 
