@@ -96,15 +96,9 @@ terraform state list
 
 **single target:**  ```terraform destroy -target="aws_instance.one[3]"```
 
-**multi targets:**  ```terraform destroy -target="aws_instance.one[3]" -target="aws_instance.one[2]"```
-=======
-**single target:** ```terraform destroy -target="aws_instance.one[3]"```
 
 **multi targets:** ```terraform destroy -target="aws_instance.one[3]" -target="aws_instance.one[2]"```
-=======
-**single target:** ```terraform destroy -target="aws_instance.one[3]"```
 
-**multi targets:** ```terraform destroy -target="aws_instance.one[3]" -target="aws_instance.one[2]"```
 
 ### **HISTORY:**
 ```
