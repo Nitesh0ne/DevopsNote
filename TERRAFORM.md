@@ -236,8 +236,6 @@ instance_count = 3
 
 **USE CASE:**
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 >FOR TEST ENV: 
 
 cat test.tfvars
@@ -707,7 +705,7 @@ used to create resources on mutliple regions in single file.
 ```
 provider "aws" {
 region = "us-east-1"
-alias = north-virginia
+alias = "north-virginia"
 }
 
 provider "aws" {
