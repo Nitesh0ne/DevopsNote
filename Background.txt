@@ -1,0 +1,97 @@
+WHY DEVOPS ?
+To deliver application faster
+SDLC: (Software Development lifecycle)
+PLAN 
+ | 
+ |--> CODE 
+       |
+       |--> BUILD
+		|
+		|--> TEST
+			|
+			|--> DEPLOY
+				|
+				|-->OPERATE
+					|
+ 					|--> MONITORING
+DEVELOPMENT TEAM  | OPERATION TEAM
+                  |
+PLAN		  |	DEPLOY
+CODE 		  |	OPERATE
+BUILD 		  |	MONITORING
+TEST		  |
+
+DEVOPS IS METHODOLOGY
+END TO END ENGINEERING 
+
+
+BEFROE DEVOPS ?
+> WATERFALL METHODOLOGY     = sequential development model  
+> AGILE(speedly) METHODOLOGY = parallel development but not deployment
+> SCRUM 		     = small part of agile
+> DEVOPS = development, testing and deployment parallel
+
+
+Little bit history of devops:
+2008 : 
+google official language = Go-language
+Netflix AWS collaboration =
+
+Andrew clay and Patrick Debiosf
+
+===========================================================================
+2nd Session:
+SOFTWARE ARCHITECTURE :
+
+TYPES:
+
+1.ONE-TIER =
+2.TWO-TIER
+3.THREE-TIER
+4.N-TIER
+
+TIER : LAYER : SERVER
+
+
+1. WEB SERVER:
+2. APP SERVER
+3. DB SERVER
+
+
+1. WEB SERVER  : FRONTEND APPLICATION / PRESENTATION LAYER
+2. APP SERRVER : Logic layer / java , .Net , js
+3. DB  SERVER  :  store data
+
+
+===========================================================================
+
+3rd Session:
+
+IMPLEMENT OF ARCHITECTURES:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -782,7 +782,7 @@ terraform init -migrate-state
 
 create a server manually.
 
-```
+```g
 provider "aws" {
 region = "us-east-1"
 }
