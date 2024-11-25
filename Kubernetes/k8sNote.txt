@@ -1,23 +1,20 @@
-----------------------------------KUBERNETES-----------------
 Cloud Learning hub note 
-
-
-IT is an open-source container orchestration platform.
-It is used to automates many of the manual processes like deploying, managing, and scaling containerized applications.
-Kubernetes was developed by GOOGLE using GO Language.
-Google donated K8's to CNCF in 2014.
-1st version was released in 2015.
+----------------------------------KUBERNETES-----------------
+<==> 33rd Session
+. IT is an open-source container orchestration platform.
+. It is used to automates many of the manual processes like deploying, managing, and scaling containerized applications.
+. Kubernetes was developed by GOOGLE using GO Language.
+. Google donated K8's to CNCF in 2014.
+. 1st version was released in 2015.
 
 ARCHITECTURE:
-
-DOCKER : CNCA
-K8S: CNPCA
-
-C : CLUSTER
-N : NODE
-P : POD
-C : CONTAINER
-A : APPLICATION
+ DOCKER : CNCA
+ K8S: CNPCA
+ C : CLUSTER
+ N : NODE
+ P : POD
+ C : CONTAINER
+ A : APPLICATION
 
 COMPONENTS:
  MASTER:
@@ -87,23 +84,20 @@ Mostly we can use single container inside a pod but if we required, we can creat
 when we create a pod, containers inside pods can share the same network namespace, and can share the same storage volumes .
 While creating pod, we must specify the image, along with any necessary configuration and resource limits.
 K8's cannot communicate with containers, they can communicate with only pods.
- We can create this pod in two ways, 
+
+We can create this pod in two ways, 
 1. Imperative(command) 
 2. Declarative (Manifest file)
 
-
 IMPERATIVE:
-
-kubectl run pod1 --image vinodvanama/paytmmovies:latest
-kubectl get pod
-kubectl get pod -o wide
-kubectl describe pod pod1
-kubectl delete pod pod2
+ kubectl run pod1 --image vinodvanama/paytmmovies:latest
+ kubectl get pod
+ kubectl get pod -o wide
+ kubectl describe pod pod1
+ kubectl delete pod pod2
 
 DECRALATIVE:
-
-vim pod.yml
-
+ vim pod.yml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -112,9 +106,7 @@ spec:
   containers:
     - image: vinodvanama/paytmtrain:latest
       name: cont1
-
 kubectl apply -f pod.yml
-
 
 HISTORY:
  1  vim minikube.sh
@@ -136,7 +128,9 @@ HISTORY:
    17  kubectl describe pod pod1
    18  cat pod.yml
    19  history
+
 ===============================================
+
 REPLICASET:
 it will create multiple copies of same pod.
 if we delete one pod automatically it will create new pod.
