@@ -177,6 +177,9 @@ TO scale rs		: kubectl scale rs/swiggy-rs --replicas=10 (LIFO)
 DRAWBACKS:
 1. we cant rollin and rollout, we cant update the application in rs.
 
+
+
+
 DEPLOYMENT:
 deploy -- > rs -- > pods
 we can update the application.
@@ -205,7 +208,7 @@ spec:
         image: nginx
 
 
-To list deployment	:kubectl get deploy
+To list deployment	: kubectl get deploy
 To show addtional info	:kubectl get deploy -o wide
 To show complete info	:kubectl describe deploy name-of-deployment
 To delete the deploy	:kubectl delete deploy name-of-deploy
@@ -213,6 +216,7 @@ to get lables of pods 	:kubectl get pods -l app=swiggy
 TO scale deploy		:kubectl scale deploy/name-of-deploy --replicas=10 (LIFO)
 To edit deploy		:kubectl edit deploy/name-of-deploy
 to show all pod labels	:kubectl get pods --show-labels
+
 To delete all pods	:kubectl delete pod --all
 
 
