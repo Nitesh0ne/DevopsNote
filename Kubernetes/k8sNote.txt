@@ -105,17 +105,20 @@ IMPERATIVE:
  kubectl delete pod pod2
 
 DECRALATIVE:
- vim pod.yml
+
+vim pod.yml
+--
 apiVersion: v1
-kind: Pod
+kind: Pod (P should be capital of pod)
 metadata:
   name: pod1
 spec:
   containers:
     - image: vinodvanama/paytmtrain:latest
       name: cont1
+--
 kubectl apply -f pod.yml
-
+-----------------------
 HISTORY:
  1  vim minikube.sh
     2  sh minikube.sh
