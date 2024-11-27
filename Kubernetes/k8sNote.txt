@@ -184,6 +184,8 @@ TO scale rs		: kubectl scale rs/swiggy-rs --replicas=10 (LIFO)
 DRAWBACKS:
 1. we cant rollin and rollout, we cant update the application in rs.
 
+replicaset  is used for replicating the pod only it is not used for updateing the pod (i.e, update version of container)
+
 
 
 
@@ -191,6 +193,8 @@ DEPLOYMENT:
 deploy -- > rs -- > pods
 we can update the application.
 its high level k8s objects.
+
+Deployment strategy = rollingupdatestrategy
 
 vim deploy.yml
 
@@ -215,17 +219,32 @@ spec:
         image: nginx
 
 
-To list deployment	: kubectl get deploy
-To show addtional info	:kubectl get deploy -o wide
-To show complete info	:kubectl describe deploy name-of-deployment
-To delete the deploy	:kubectl delete deploy name-of-deploy
-to get lables of pods 	:kubectl get pods -l app=swiggy
-TO scale deploy		:kubectl scale deploy/name-of-deploy --replicas=10 (LIFO)
-To edit deploy		:kubectl edit deploy/name-of-deploy
-to show all pod labels	:kubectl get pods --show-labels
+To list deployment        :kubectl get deploy
+To show addtional info	    :kubectl get deploy -o wide
+To show complete info	      :kubectl describe deploy name-of-deployment
+To delete the deploy	       :kubectl delete deploy name-of-deploy
+to get lables of pods 	    :kubectl get pods -l app=swiggy
+TO scale deploy		          :kubectl scale deploy/name-of-deploy --replicas=10 (LIFO)
+To edit deploy		           :kubectl edit deploy/name-of-deploy
+to show all pod labels	     :kubectl get pods --show-labels
 
 To delete all pods	:kubectl delete pod --all
 
+
+
+
+
+KUBECOLOR:
+
+wget https://github.com/hidetatz/kubecolor/releases/download/v0.0.25/kubecolor_0.0.25_Linux_x86_64.tar.gz
+tar -zxvf kubecolor_0.0.25_Linux_x86_64.tar.gz
+./kubecolor
+
+chmod +x kubecolor
+mv kubecolor /usr/local/bin/
+
+kubecolor get po
+--------------------------------------------------------------------------------------------------------------
 
 
 HISTORY:
@@ -468,14 +487,7 @@ so users cant access/delete ns, because of the restriction we provide.
 we create roles and rolebind for the users.
 
 
-KUBECOLOR:
 
-wget https://github.com/hidetatz/kubecolor/releases/download/v0.0.25/kubecolor_0.0.25_Linux_x86_64.tar.gz
-tar -zxvf kubecolor_0.0.25_Linux_x86_64.tar.gz
-./kubecolor
-chmod +x kubecolor
-mv kubecolor /usr/local/bin/
-kubecolor get po
 
 ==============================================================================
 
