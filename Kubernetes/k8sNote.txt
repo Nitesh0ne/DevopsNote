@@ -337,6 +337,8 @@ HISTORY:
 root@ip-172-31-17-73:~#
 
 =======================================================
+36th Session:
+
 INFRASTRUCUTRE: Resource used to run our application on cloud.
 EX: servers, Vpc, LB, Asg
 Highly availablility : More than one server
