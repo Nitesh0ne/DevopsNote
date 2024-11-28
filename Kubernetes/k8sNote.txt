@@ -362,11 +362,15 @@ ADVANTAGES:
 •	Manages cluster add-ons.
 •	Supports state-sync model for dry-runs and automatic idempotency
 •	Creates instance groups to support heterogeneous clusters
+
 ALTERNATIVES:
 Amazon EKS , MINIKUBE, KUBEADM, RANCHER, TERRAFORM, HELM.
 
 
-keys -- > iam -- > user -- > craete users -- > name: kops -- > attach polocies directly -- > AdministratorAccess -- > next -- > create 
+Step 1 :  Creating User and providing permission
+iam -- > user -- > craete users -- > name: kops -- > attach polocies directly -- > AdministratorAccess -- > next -- > create 
+
+step 2: 
 select user -- > security credentials -- > Access keys -- > create Access keys 
 -- > cli -- > confirm -- > crearte Access keys -- > download file
 
@@ -390,6 +394,8 @@ wget https://github.com/kubernetes/kops/releases/download/v1.25.0/kops-linux-amd
 chmod +x kops-linux-amd64 kubectl
 mv kubectl /usr/local/bin/kubectl
 mv kops-linux-amd64 /usr/local/bin/kops
+
+step 3: creating bucket
 
 aws s3api create-bucket --bucket rahamssshaik09.k8s.local --region us-east-1
 aws s3api put-bucket-versioning --bucket rahamssshaik09.k8s.local --region us-east-1 --versioning-configuration Status=Enabled
