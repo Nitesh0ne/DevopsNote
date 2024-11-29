@@ -635,8 +635,11 @@ spec:
       targetPort: 80
 
 ======================================================================
+38th Session :
 
-DAY-06:
+----------------------Monitoring -------------
+
+PROMETHEUS 
   
 CONFIGMAPS & SECRETS
   
