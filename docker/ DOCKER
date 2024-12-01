@@ -1,4 +1,7 @@
-MONOLITHIC: multiple services are deployed on single server with single database.
+==================== DOCKER ====================================================
+26TH session:
+
+MONOLITHIC: multiple services are deployed on single server with single database.  
 MICRO SERVICES: multiple services are deployed on multiple servers with multiple database.
 
 CONTAINERS:
@@ -25,10 +28,10 @@ VIRTUALIZATION:
 able to create resouce with our hardware properties.
 
 ARCHITECTURE & COMPONENTS:
-client: it will interact with user
-user gives commands and it will be executed by docker client
-daemon: manages the docker components(images, containers, volumes)
-host: where we install docker (ex: linux, windows, macos)
+
+client:   it will interact with user, user gives commands and it will be executed by docker client
+daemon:   manages the docker components(images, containers, volumes)
+host:     where we install docker (ex: linux, windows, macos)
 Registry: manages the images.
 
 INSTALLATION OF DOCKER.
@@ -37,10 +40,10 @@ systemctl start docker	 #client,Engine
 systemctl status docker
 
 COMMANDS:
-docker pull ubuntu	: pull ubuntu image
-docker images		: to see list of images
-docker run -it --name cont1 ubuntu : to create a container
--it (interactive) - to go inside a container
+docker pull ubuntu:                           pull ubuntu image
+docker images	   :                           to see list of images
+docker run -it --name cont1 ubuntu :          to create a container  , -it (interactive) - to go inside a container
+
 cat /etc/os-release	: to see os flavour
 
 apt update -y	: to update 
@@ -53,15 +56,16 @@ apt install apache2 -y
 service apache2 start
 service apache2 status
 
-docker p q		: to exit container
-docker ps -a		: to list all containers
-docker attach cont_name	: to go inside container
-docker stop cont_name	: to stop container
-docker start cont_name	: to start container
-docker pause cont_name	: to pause container
-docker unpause cont_name: to unpause container
-docker inspect cont_name: to get complete info of a container
-docker rm cont_name	: to delete a container
+docker p q		            : to exit container
+docker ps -a		         : to list all containers
+docker attach cont_name	   : to go inside container
+docker stop cont_name	   : to stop container
+docker kill <cont_name>    : to kill cintainer immediately 
+docker start cont_name	   : to start container
+docker pause cont_name	   : to pause container
+docker unpause cont_name   : to unpause container
+docker inspect cont_name   : to get complete info of a container
+docker rm cont_name	      : to delete a container
 docker commit <container_name> <image_name>
 
 HISTORY:
