@@ -236,6 +236,15 @@ mv netflix-clone/* .
 docker build -t netflix:v1 .
 docker run -itd --name cont1 -p 80:80 netflix:v1
 
+
+Docker Restart policy:
+
+dcoker update --restart="always" or "no" <cont_name>
+
+
+
+
+
 HISTORY:
    32  yum install docker -y
    33  docker version
