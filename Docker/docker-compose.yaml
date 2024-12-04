@@ -1,0 +1,19 @@
+services:
+  movie:
+    image: nitace/movie:1
+    ports:
+      - "80:80"
+    deploy:
+      replicas: 3
+  bussewa:
+    image: nitace/bussewa:1
+    ports:
+      - "81:80"
+    deploy:
+      replicas: 3
+  fonepay:
+    image: nitace/fonepay:1
+    ports:
+      - "82:80"
+    deploy:
+      replicas: 4
