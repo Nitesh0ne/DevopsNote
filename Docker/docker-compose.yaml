@@ -5,6 +5,10 @@ services:
       - "80:80"
     deploy:
       replicas: 3
+      placement:
+        constraints:
+          - "node.role==worker" // deploy service worker node only
+
   bussewa:
     image: nitace/bussewa:1
     ports:
