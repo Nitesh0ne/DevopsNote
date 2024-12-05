@@ -1,10 +1,11 @@
-DAY-01: 12-08-2023
-INTRO, STAGES, HISTORY COMMANDS
+Day -1 
+8th Session
+------------
+Topic 1 : INTRO, STAGES, HISTORY COMMANDS
 
 GIT: GLOBAL INFORMATION TRACKER
 WHY: To store and track the code.
-
-git = vcs, scm 
+git =>  vcs, scm 
 
 v-1: phots --- > 100 lines
 v-2: msg   --- > 100 + 50 lines = 150
@@ -13,7 +14,6 @@ v-3: reels --- > 150 + 50 lines = 200
 vcs = it will store and track each version code separately.
 why to store the code: rollback 
 rollback: means going back to the previous version.
-
 
 DVCS: Distributed version control system
 we can store code on multiple repos.
@@ -39,8 +39,9 @@ yum install git -y   #to install git
 git init 	     #to initialize .git
 
 touch index.html: to create a file
-git status: to check file is tracking or not
-git add: to track the file
+git status: : to check file is tracking or not
+git add     : to track the file
+
 git commit -m "v-1" index.html: to store the index.html 
 git log: to show the commits
 
