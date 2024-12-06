@@ -45,22 +45,14 @@ git add     : to track the file
 git commit -m "v-1" index.html: to store the index.html 
 git log: to show the commits
 
-
-DAY-02: 14-02-2023
-
-
 APP: a group of services.
 who will develop the application:
 developers (frontend, backend, db)
-
 what to do: write the code 
 where to store: git
 
-
-
 GIT LOGS: used to check the commits history.
 the latest commit will be on top (LIFO).
-
 
 git log			: shows the commits 
 git log --oneline	: shows the commits on oneline
@@ -70,68 +62,6 @@ git show commit_id	: shows files committed to that commit_id
 GIT CONFIGURE:
 git config user.name "raham"
 git config user.email "raham@gmail.com"
-
-HISTORY:
- 1  mkdir paytm
-    2  cd paytm/
-    3  yum install git -y
-    4  git init
-    5  ls -al
-    6  git status
-    7  cd ..
-    8  git status
-    9  ls -al
-   10  cd paytm/
-   11  vim index.html
-   12  git status
-   13  git add index.html
-   14  git status
-   15  git commit -m "commit-1" index.html
-   16  git status
-   17  touch recharge.java
-   18  git status
-   19  git add recharge.java
-   20  git status
-   21  git commit -m "commit-2" recharge.java
-   22  ll
-   23  git status
-   24  touch raham
-   25  git add raham
-   26  git commit -m "raham commits" raham
-   27  git log
-   28  git log --oneline
-   29  git log --oneline -2
-   30  git log --oneline -1
-   31  git show 1e06d41
-   32  touch python{1..10}
-   33  git status
-   34  git add p*
-   35  git status
-   36  git commit -m "backedn files" p*
-   37  git log
-   38  git log --oneline
-   39  git log --oneline -1
-   40  git show 460311a
-   41  git log
-   42  git config user.name "raham"
-   43  git config user.email  "raham@gmail.com"
-   44  git log
-   45  touch php
-   46  git add php
-   47  git commit -m "php file" php
-   48  git log
-   49  git config user.name "sohail"
-   50  git config user.email "soggade@gmail.com"
-   51  git log
-   52  touch sohail
-   53  git add sohail
-   54  git commit -m "shoail" sohail
-   55  git log
-   56  history
-
-======================================
-DAY-03: 16-08-2023
-
 
 GIT BRANCHES:
 it is an individaul line used to develope the code.
@@ -168,101 +98,6 @@ password: token
 
 git clone: use to copy the code to local
 git clone https://github.com/srinivasnaiduarja/paytm.git
-
-HISTORY:
-
- 1  mkdir paytm
-    2  cd paytm/
-    3  yum install git -y
-    4  ls -al
-    5  git init
-    6  ls -al
-    7  git branch
-    8  touch index.html
-    9  git status
-   10  git add index.html
-   11  git status
-   12  git config user.name "raham"
-   13  git config user.email "raham@gmail.com"
-   14  git commit -m "commit-1" index.html
-   15  git branch
-   16  git branch movie
-   17  git branch
-   18  git checkout movie
-   19  git branch
-   20  ll
-   21  touch movies{1..5}
-   22  git add movies*
-   23  git commit -m "dev-1" movies*
-   24  ls -al
-   25  git remote add origin https://github.com/srinivasnaiduarja/paytm.git
-   26  git push origin movie
-   27  ll
-   28  git branch
-   29  git branch train
-   30  git branch
-   31  git checkout train
-   32  ll
-   33  touch train{1..5}
-   34  git add train*
-   35  git commit -m "dev-2" train*
-   36  git push origin train
-   37  git branch
-   38  git checkout -b dth
-   39  git branch
-   40  ll
-   41  touch dth{1..5}
-   42  git add dth*
-   43  git commit -m "dev-3" dth*
-   44  git push origin dth
-   45  git checkout -b recharge
-   46  git branch
-   47  touch recharge{1..5}
-   48  git add recharge*
-   49  git commit -m "dev-4" recharge*
-   50  git push origin recharge
-   51  cd
-   52  ll
-   53  rm -rf *
-   54  ll
-   55  git status
-   56  git clone https://github.com/srinivasnaiduarja/paytm.git
-   57  ll
-   58  cd paytm/
-   59  git branch
-   60  ll
-   61  git checkout train
-   62  ll
-   63  git branch
-   64  git checkout dth
-   65  ll
-   66  git checkout recharge
-   67  ll
-   68  git branch
-   69  git branch -m recharge abc
-   70  git branch
-   71  git branch -m abc recharge
-   72  git branch
-   73  git branch -D train
-   74  git branch
-   75  git pull origin train
-   76  git branch
-   77  git checkout -b train
-   78  git branch
-   79  ll
-   80  git branch -D train
-   81  git checkout recharge
-   82  git branch -D train
-   83  git checkout -b train
-   84  ll
-   85  touch abcd
-   86  git commit -m "abc" abcd
-   87  git add abcd
-   88  git push origin recharge
-   89  history
-   90  git branch
-   91  ll
-   92  history
 ========================================================
 
 DAY-03:
