@@ -130,12 +130,13 @@ DAY-03:
 Day 4 :
 11th Session:
 
-
 GIT MERGE: used to merge files blw two branches.
-git merge branch_name
+git merge <branch_name>
 
-git checkout master
-git merge movies
+git checkout <master>
+git merge <movies>
+
+in github we create a pull request to merge a particular branch fo
 
 GIT REBASE: used to merge files blw two branches.
 
@@ -145,15 +146,10 @@ merge will show files, but rebase will not show.
 merge will not show the branch, but rebase will show.
 merge will store the entire history, but rebase will not show.
 
-
 GIT REVERT: used to undo merging blw branches.
 git revert branch_name
 
-
 GIT PULL: it will get the files form github to git
-
-=======================================================
-
 
 git clone: use to copy repo to local 
 git clone https://github.com/srinivasnaiduarja/paytm.git
@@ -167,12 +163,8 @@ git push origin master
 git fetch: it shows changes from GitHub to git 
 git fetch
 
-
-================================================
-
 git stash: used to hide the files which are not committed.
 to save our work temeperorly.
-
 
 git stash	: to hide
 git stash list	: to list the stashes
@@ -182,99 +174,61 @@ git stash pop	: to delete latest stash
 
 
 =======================================================
+12th Session: 
+Day-5 
+Merge Conflict : 
 
-CHERRY-PICK: getting files from specific commits
-git cherry-pick commit_id
+
+
+
+
+
+
+
+
+
+
+
+CHERRY-PICK: getting files from specific commits with the  help of commit id 
+git cherry-pick <commit_id>
 
 cherrypick vs merge: 
+   --> merge will add all files.
+   --> cherrypick will add specific files.
 
-merge will add all files.
-cherrypick will add specific files.
+git show <commit-id>  :
+git show <file_name>  :
+git log --stat        : to show commit history 
+git log --patch       : to show entire history of commit 
+
+
+
+git revert  <branch_name> : to undo mergeing
+
+
+git pull 
+
+git fetch 
+
+git merge vs rebase 
+git merge vs cherrypick 
+git clone vs pull 
+
+git clone vs fork 
+clone Is for remote to local
+
+fork is for github to github
+
+
+
+
+
+
+
+
+
 
 
 GIT RESTORE: used to untrack the file.
 git restore --staged raham
 
-history:
-   1 mkdir paytm
-   2  cd paytm/
-    3  yum install git -y
-    4  git init
-    5  ll
-    6  git clone https://github.com/RAHAMSHAIK007/10-30amnew.git
-    7  ll
-    8  cd 10-30amnew/
-    9  ll
-   10  cat index.html
-   11  git pull origin main
-   12  cat index.html
-   13  git pull origin main
-   14  cat index.html
-   15  git fetch
-   16  cat index.html
-   17  git pull origin main
-   18  ll
-   19  cd
-   20  rm -rf *
-   21  mkdir paytm
-   22  cd paytm/
-   23  touch index.html
-   24  git add index.html
-   25  git init
-   26  git add index.html
-   27  git commit -m "commit-1" index.html
-   28  ll
-   29  touch java
-   30  git add java
-   31  ll
-   32  git stash
-   33  ll
-   34  git stash list
-   35  git stash apply
-   36  ll
-   37  git stash list
-   38  git stash clear
-   39  ll
-   40  git stash list
-   41  ll
-   42  git stash
-   43  ll
-   44  git stash list
-   45  git stash apply
-   46  ll
-   47  git stash apply
-   48  git stash list
-   49  git stash clear
-   50  git stash list
-   51  git branch
-   52  git checkout -b branch1
-   53  touch java{1..5}
-   54  git add java*
-   55  git commit -m "java-commits" java*
-   56  touch python{1..5}
-   57  git add python*
-   58  git commit -m "python-commits" python*
-   59  touch php{1..5}
-   60  git add php*
-   61  git commit -m "php-commits" php*
-   62  ls
-   63  git log --oneline
-   64  git checkout master
-   65  git cherry-pick 9af3cae
-   66  ls
-   67  git cherry-pick 8323e96
-   68  git cherry-pick 9c7a377
-   69  touch raham
-   70  git status
-   71  git add raham
-   72  git status
-   73  git restore --staged raham
-   74  git status
-   75  git add raham
-   76  git status
-   77  git restore --staged raham
-   78  git status
-   79  ll
-   80  vim index.html
-   81  git status
-   82  history
