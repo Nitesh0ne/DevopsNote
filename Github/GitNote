@@ -43,6 +43,8 @@ git status: : to check file is tracking or not
 git add     : to track the file
 
 git commit -m "v-1" index.html: to store the index.html 
+
+git commit -a -m "commit messsage" : add and commit from single command (note : first file should be tracked once)
 git log: to show the commits
 
 APP: a group of services.
@@ -146,6 +148,11 @@ merge will show files, but rebase will not show.
 merge will not show the branch, but rebase will show.
 merge will store the entire history, but rebase will not show.
 
+
+
+
+
+
 GIT REVERT: used to undo merging blw branches.
 git revert branch_name
 
@@ -159,18 +166,23 @@ git push origin master
 
 git pull: to get code from GitHub to local 
 git push origin master
+git pull == git fetch + git merge (note : git pull is the combination of both comand git fetch and git merge )
 
-git fetch: it shows changes from GitHub to git 
-git fetch
+git fetch  : it shows changes from GitHub to git does not pull code  while git pull code from the github
+   git fetch copies the changes from remote repo to locla repo then you have to merge to working directory by giving command git merge 
+   Note : git merge command sholud be given after git fetch  
+   while git pull is the combination of both  git fetch and git merge command
+
+
 
 git stash: used to hide the files which are not committed.
 to save our work temeperorly.
 
-git stash	: to hide
-git stash list	: to list the stashes
+git stash	      : to hide uncommited file
+git stash list	   :   to list the stashes
 git stash apply	: to get the file back
-git stash clear	: to delete stashes
-git stash pop	: to delete latest stash
+git stash clear	: to delete stashes (note* it also delete stashed file )
+git stash pop	   : to delete latest stash
 
 
 =======================================================
