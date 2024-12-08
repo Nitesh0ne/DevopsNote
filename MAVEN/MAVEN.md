@@ -59,34 +59,4 @@ maven: plugins (reusable), ant: scripts (not reusable)
 
 plugins: is a small software we can use without installing tool.
 
-HISTORY:
 
-  1  yum install java-1.8.0-openjdk maven git -y
-    2  git --version
-    3  mvn --version
-    4  git clone https://github.com/devopsbyraham/jenkins-java-project.git
-    5  ll
-    6  cd  jenkins-java-project/
-    7  ll'
-    8  ll
-    9  yum install tree -y
-   10  tree
-   11  mvn compile
-   12  ll
-   13  tree
-   14  mvn test
-   15  tree
-   16  mvn package
-   17  tree
-   18  mvn install
-   19  cd /root/.m2/repository/in/javahome/myweb/8.3.2-SNAPSHOT/
-   20  ll
-   21  cd -
-   22  mvn deploy
-   23  ll
-   24  mvn clean
-   25  mvn clean package
-   26  ll
-   27  tree
-   28  cat pom.xml
-   29  history
