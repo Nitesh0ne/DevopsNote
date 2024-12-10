@@ -180,7 +180,11 @@ above command will make jenkins service automatically restart itself when sevrve
 
 
 =============================================================
-DAY-04: 22-09-2023 : PIPELINE & SONARQUBE
+17th session
+DAY-04: 22-09-2023 : 
+Jenkins Master ans slave
+
+PIPELINE & SONARQUBE
 
 PIPELINE:
 Step by step execution of a process.
