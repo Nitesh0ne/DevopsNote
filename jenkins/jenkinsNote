@@ -183,7 +183,8 @@ above command will make jenkins service automatically restart itself when sevrve
 17th session
 DAY-04: 22-09-2023 : 
 Jenkins Master ans slave
-
+========================================================================================================================
+18th Session
 PIPELINE & SONARQUBE
 
 PIPELINE:
@@ -198,22 +199,19 @@ used to automate the work.
 used to save time.
 increase efficency.
 
-
 TYPES:
 1. SCRIPTED
 2. DECLARATIVE (Higly used)
 
 DECLARATIVE:
-its a pipeline used to divide the work into stages and steps.
-each stage will have one or more than on step.
-we use groovy syntax for pipeline.
-we can use pipeline for creating ci cd process.
-we can integrate all tools with pipeline.
+    its a pipeline used to divide the work into stages and steps.
+    each stage will have one or more than on step.
+    we use groovy syntax for pipeline.
+    we can use pipeline for creating ci cd process.
+    we can integrate all tools with pipeline.
+    It is Domain Specific Language(DSL)
 
-
-
-SINGLE STAGE PIPELINE: it will have only one stage
-
+1. SINGLE STAGE PIPELINE: it will have only one stage
 pipeline {
     agent any
     
@@ -225,17 +223,14 @@ pipeline {
         }
     }
 }
-
 NOTE: to remember pipeline syntax shortcut is PASSS.
-
 P	: pipeline
 A	: agent
 S	: stages
 S	: stage
 S	: steps
 
-MULTI STAGE PIPELINE: it will have more than one stage 
-
+2. MULTI STAGE PIPELINE: it will have more than one stage 
 pipeline {
     agent any
     
