@@ -426,8 +426,34 @@ HISTORY:
    76  terraform apply --auto-approve
    77  terraform destroy --auto-approve
    78  cat main.tf
+
 ```
 =============================================================
+## **47th Session - DevOps Terraform Instance**
+
+````
+// code to create s3 bucket
+resource "aws_s3_bucket" "tests3bucket"{
+bucket = "niteshterraforms3bucket"
+}
+
+
+// code to create ebs volume 
+resource "aws_ebs_volume" "testVolume"{
+size = 20
+availaibility_zone = "us-west-1a"
+tags = {
+Name = "terra-ebs"
+    }
+}
+
+// code to create iam user
+resource "aws_iam_user" "terraAdmin"{
+name = "Admin"
+
+}
+
+````
 
 ## **Terraform taint and Untaint**
 
