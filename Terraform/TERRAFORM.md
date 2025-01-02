@@ -1,9 +1,10 @@
 # **TERRAFORM NOTES**
-## BACKGROUND:
+## **BACKGROUND**
 ---
+
 **INFRASTRUCTURE :**
-Resources used to run our application on cloud.
-ex: ec2, s3, elb, vpc --------------
+  Resources used to run our application on cloud.
+ex: ec2, s3, elb, vpc etc.
 In general we used to deploy infra manaully. 
 
 Manual:
@@ -12,13 +13,18 @@ Manual:
 - Commiting mistakes.
 
 Its a tool used to make infrastructure automation.
+
 Its a free and opensource.
+
 Its platform independent.
+
 It comes on year 2014.
+
 who: mitchel hasimoto 
+
 own: hasicorp 
 
-Terraform is written on go language.We can call terraform as IAAC TOOL.
+Terraform is written on go language. We can call terraform as IAAC TOOL.
 
 HOW IT WORKS:
 
@@ -39,6 +45,9 @@ ADVANTGAES:
 - Avoiding mistakes
 - Dry run : withot executing the cod ewe can get output 
 ---
+AWS - CFT
+AZURE - ARM
+GCP - GDE
 
 
 **INSTALLING TERRAFORM on Amazon Linux:**
@@ -50,21 +59,18 @@ sudo yum -y install terraform
 ---
 ## TERRAFORM COMMANDS:
 
-``` terraform init	``` : initalize the provider plugins on backend.
+``` terraform init```    : initalize the provider plugins on backend.
 
-```terraform plan ```	: to create execution plan.
+```terraform plan```	   : to create execution plan.
 
-```terrafrom apply ``` : to create resources.
+```terrafrom apply```    : to create resources.
 
-```terrafrom destroy ``` : to delete resources.
+```terrafrom destroy```  : to delete resources.
 
 ---
 
 **CODE:**
 
-=======
-
-======
 vi main.tf 
 ```
 provider "aws" {
@@ -74,28 +80,27 @@ resource "aws_instance" "one" {
 ami = "ami-0bb4c991fa89d4b9b"
 instance_type = "t2.micro"
 }
+
+1. terraform init 
+
+2. terraform plan  
+
+3. terraform apply 
+
+4. terraform destroy  
+
 ```
-``` 1. terraform init ```
-
-``` 2. terraform plan  ```
-
-``` 3. terraform apply ```
-
-``` 4. terraform destroy ``` 
-
 ## **STATE FILE:** 
 
 Used to store the resource information which is created by terraform to track the resource activities. 
 
 In real time entire resource info is on  state file. we need to keep it safe .If we lost this file we can't track the infra.
-```
-terraform state list
-```
 
-```terrafrom target ```: used to destroy the specific (target) resource 
+```terraform state list ``` : is used to list the resources created by terraform 
+
+```terrafrom target ``` : used to destroy the specific (target) resource 
 
 **single target:**  ```terraform destroy -target="aws_instance.one[3]"```
-
 
 **multi targets:** ```terraform destroy -target="aws_instance.one[3]" -target="aws_instance.one[2]"```
 
@@ -143,6 +148,7 @@ terraform state list
    39  history
 ```
 ==========================================================================
+
 ## **VARIABLES:** 
 to pass values as variables
 
@@ -205,7 +211,7 @@ terraform destroy --auto-approve
 
 cat main.tf
 ```
-## Declaring varaible in seprate file called in variable.tf and value in seperate file called var.tfvars
+## Declaring varaible block in seprate file called in variable.tf and value in seperate file called var.tfvars
 provider "aws" {
 }
 resource "aws_instance" "one" {
@@ -234,15 +240,11 @@ instance_type = "t2.medium"
 instance_count = 3
 ```
 
-**USE CASE:**
+**USE CASE:**  of  using seperate tfvars(e.g test.tfvars, dev.tfvars) file we can use value for different environment
 
->FOR TEST ENV: 
+> **FOR TEST ENV:** 
 
-cat test.tfvars
-=======
->cat test.tfvars
-=======
->cat test.tfvars
+**cat test.tfvars**
 ```
 instance_type = "t2.micro"
 instance_count = 5
@@ -251,9 +253,9 @@ instance_count = 5
 terraform apply --auto-approve -var-file="test.tfvars"
 ```
 
->FOR DEV ENV: 
+> **FOR DEV ENV:** 
 
-cat dev.tfvars
+**cat dev.tfvars**
 ```
 instance_type = "t2.medium"
 instance_count = 3
@@ -261,32 +263,11 @@ instance_count = 3
 ```
 ```
 terraform apply --auto-approve -var-file="dev.tfvars"
-
 ```
 
-
-
-=======
-=======
->cat dev.tfvars
-```
-instance_type = "t2.medium"
-instance_count = 3
-```
-
->FOR DEV ENV: 
-```
-terraform apply --auto-approve -var-file="dev.tfvars"
-```
->FOR TEST ENV: 
-```
-terraform apply --auto-approve -var-file="test.tfvars"
-
-```
-=======
 ## **TERRAFORMCLI:**
 Used to pass values from cli
-IN Real-time Most of the values are passed for .tfvars file
+In Real-time Most of the values are passed from .tfvars file
 
 ```
 provider "aws" {
@@ -362,7 +343,7 @@ terraform destroy --auto-approve
 ## **TERRAFORM IMPORT**
 Used to import and track the resources which is created manually
 
-terraform import aws_instance.one <instance_id>
+```terraform import aws_instance.one    <instance_id>```
 
 ```
 HISTORY:
@@ -428,7 +409,7 @@ HISTORY:
    78  cat main.tf
 
 ```
-=============================================================
+
 ## **47th Session - DevOps Terraform Instance**
 
 ````
@@ -470,25 +451,16 @@ we can just mark the object as tainted.
 
 ``` terraform apply --auto-approve ```
 
-``` terraform taint <aws_instance.one >```
-``` terraform apply --auto-approve ```
-``` terraform taint <aws_instance.one >```
-``` terraform apply --auto-approve ```
-``` terraform untaint <aws_instance.one> ```
+To Untaint the resources :  ``` terraform untaint <aws_instance.one> ```
 
-Used to recreate specific object
-In Real time some resources we need to recrete if it will work properly
-then we use taint concept
+Used to recreate specific object.
+In Real time some resources we need to recrete if it will not work properly,
+then we use taint concept.
 
-terraform taint recreate the particular resource 
+Terraform Taint recreate the particular resource 
 
 ```  terraform taint aws_instance.four ```
 
- terraform taint recreate the particular resource 
-```  terraform taint aws_instance.four ```
-
- terraform taint recreate the particular resource 
-```  terraform taint aws_instance.four ```
 ``` terraform taint aws_ebs_volume.three ```
 
 ## **Terraform Lifecycle**
@@ -515,13 +487,6 @@ resource "aws_instance" "one" {
 
 **Ignore Changes :** It will not the replicate the changes done to a resources
 
-## **Version Constraints**
-
-Used to change (either upgrade or downgrade the provider version)
-
-``` terraform init --upgrade ```
-
-
 ## **TERRAFORM LOCALS:**
 used to define the value once and we can use mutliple times.
 
@@ -547,7 +512,7 @@ bucket = "${local.env}-bucketswiggy0011"
 ```
 
 ## **TERRAFORM WORKSPACES:**
-Workspace is used to isloate the envs.
+Workspace is used to isloate the environmen.
 In real time we create infra for envs by using workspace only.
 By default we have a default workspace.
 The work is not going to effect from one workspace to another workspace.
@@ -632,7 +597,10 @@ Used to show the flow chart of our infra
 
 ```Terraform graph```
 
-copy paste the content in graphviz online
+copy paste the content in graphviz online (Website)
+
+**terraform fmt** :
+to set the allignment for my code
 
 ```
 HISTORY:
@@ -782,7 +750,7 @@ Note: while using new provider block always we need to run terraform init
 otherwise plugins will not be downloaded
 
 after removing backend setup run this command:
-terraform init -migrate-state
+```terraform init -migrate-state```
 
 
 ## **TERRAFORM IMPORT:**
@@ -795,25 +763,23 @@ create a server manually.
 provider "aws" {
 region = "us-east-1"
 }
-
-
 resource "aws_instance" "one" {
 }
 ```
-terraform import aws_instance.one i-01352498aa00dded6
-```
-cat terraform.tfstate
+```terraform import aws_instance.one  <instance id>```
 
 
-> Terraform refresh // refresh the state file 
+## **TERRAFORM REFRESH** : 
+Used to refresh the state file (Scenario: if we manually deleted the resources created by terraform, then also after deletion the state file will have info of resources)
 
+```Terraform refresh ``` : refresh the state file
 
 
 ## **Terraform validate :**
 
-command used to validate the terraform syntax.
-if you have any mistakes on syntax or arguments it will show you.
-this command can be used before plan
+Command used to validate the terraform syntax.
+If you have any mistakes on syntax or arguments it will show you.
+This command can be used before plan
 
 ```
 provider "aws" {
@@ -898,7 +864,6 @@ HISTORY:
   153  terraform destroy --auto-approve
   154  history
 ```
-=======================================================================================
 ```
 provider "aws" {
 }
@@ -936,10 +901,8 @@ terraform {
   }
 }
 
->terraform init --upgrade  
-
+terraform init --upgrade  
 ```
-===============================================================================
 
 ## **DYNAMIC BLOCK:**
 
@@ -1011,7 +974,6 @@ resource "aws_security_group" "main" {
 ```
 provider "aws" {
 }
-
 resource "aws_instance" "two" {
 for_each = toset(["web-server", "app-server", "db-server"])
 ami = "ami-04beabd6a4fb6ab6f"
@@ -1026,7 +988,6 @@ Name = "${each.key}"
 proviedr "aws"{
   region = "ap-south-1"
 }
-
 resource "aws_instance" "one" {
   count = length(var.instance_type)
   ami = "ami-"
@@ -1044,16 +1005,6 @@ variable "instance_name" {
   default = ["web-srv", app-srv, db-srv]
 }
 ```
-## **TERRAFORM FRT:**
-to set the allignment for my code
-
-AWS - CFT
-AZURE - ARM
-GCP - GDE
-
-
-MODULES:
-
 cat main.tf
 ```
 module "my_instance_module" {
