@@ -470,10 +470,8 @@ we can just mark the object as tainted.
 
 ``` terraform apply --auto-approve ```
 
-=======
 ``` terraform taint <aws_instance.one >```
 ``` terraform apply --auto-approve ```
-=======
 ``` terraform taint <aws_instance.one >```
 ``` terraform apply --auto-approve ```
 ``` terraform untaint <aws_instance.one> ```
@@ -486,10 +484,9 @@ terraform taint recreate the particular resource
 
 ```  terraform taint aws_instance.four ```
 
-=======
  terraform taint recreate the particular resource 
 ```  terraform taint aws_instance.four ```
-=======
+
  terraform taint recreate the particular resource 
 ```  terraform taint aws_instance.four ```
 ``` terraform taint aws_ebs_volume.three ```
@@ -497,8 +494,6 @@ terraform taint recreate the particular resource
 ## **Terraform Lifecycle**
 
 ```
-=======
-=======
 provider "aws" {
   region = "us-east-1"
 }
@@ -519,18 +514,6 @@ resource "aws_instance" "one" {
 **prevent Destory :** It will no destory the resources
 
 **Ignore Changes :** It will not the replicate the changes done to a resources
-
-**Depends on :**  
-=======
-=======
-**prevent Destory : ** It will no destory the resources
-
-** Ignore Changes : ** It will not the replicate the changes done to a resources
-
-** Depends on : **  
-=======
-
-
 
 ## **Version Constraints**
 
@@ -773,7 +756,7 @@ Here im using s3 as remote backend.
 
 Create a bucket manually
 
-``
+```
 provider "aws" {
 region = "us-east-1"
 }
@@ -808,7 +791,7 @@ terraform init -migrate-state
 
 create a server manually.
 
-```g
+```
 provider "aws" {
 region = "us-east-1"
 }
