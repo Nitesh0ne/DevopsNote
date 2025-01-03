@@ -79,6 +79,7 @@ region = "us-east-1"
 resource "aws_instance" "one" {
 ami = "ami-0bb4c991fa89d4b9b"
 instance_type = "t2.micro"
+key_name = "terraform" // name of .pem file
 }
 
 1. terraform init 
