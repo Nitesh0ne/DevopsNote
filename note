@@ -1,0 +1,33 @@
+Deployment Type 
+1. monolithic deployment : for monolothic services 
+2. micro-service deployment : for micro-services softwares
+3. infrastructure deployment : for infrastructure deployment
+
+Release vs Deployment 
+
+software release:
+- major version 
+- minor version 
+- patch 
+
+Deployment Strategies 
+1: Blue Green Deployment 
+2: Rolling Stategies
+3: Canary Deployment
+4: Recreate Strategy
+5: A/B Testing
+
+-------------Architecture---------------------------------
+Monolothic:
+1 . Architecture
+2 . Infra(Terraform)
+3.  COnfiguration(Ansible)
+4.  Deploy (CI/CD)[GIT, Maven, Jenkins]
+5. Install ssl certificates
+
+Microservice:
+1. Architecure
+2. Infra(KOPS)
+3. CODE-->IMAGE-->DOCKERHUB
+4. DEPLOY THE APP TO K8S CLUSTER
+5. INSTALL SSL CERTS
