@@ -867,7 +867,7 @@ HISTORY:
 ```
 ## **Creating Local Resources**
 ```
-provider "aws" {
+provider "local_file" {
 }
 
 resource "local_file" "one" {
