@@ -865,6 +865,7 @@ HISTORY:
   153  terraform destroy --auto-approve
   154  history
 ```
+## **Creating Local Resources**
 ```
 provider "aws" {
 }
