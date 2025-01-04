@@ -1007,6 +1007,7 @@ variable "instance_name" {
   default = ["web-srv", app-srv, db-srv]
 }
 ```
+## **Terraform Moduele**
 cat main.tf
 ```
 module "my_instance_module" {
