@@ -36,7 +36,9 @@ UAT	: Client
 PRE-PROD/NON-PROD : DEV, QA, UAT
 
 PROD	          : Users
-LIVE              : PROD
+PROD is also called Live Environment
+
+
 
 PIPELINE:
 Step by step execution of a process.
