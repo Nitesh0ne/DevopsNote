@@ -93,35 +93,28 @@ HOW TO DO CI:
 JOB: if we want to work on jenkin we need to create job.
 
 =====================================================================================
-DAY-02: 
-VARIABLES, ADMIN ACTIVITIES
+15th Session - DevOps Jenkins Script
+
+PARAMETER, ADMIN ACTIVITIES
 
 CREATING A JOB: 
 new item -- > name -- > free style -- > ok -- > Build Steps -- > execute shell
 we can run linux coomands on execute shell
 
-VARIABLES:
-1. USER DEFINED VARS: these variables will be declared by user.
+PARAMETERS:
+its a way of passing input for the jobs.
+used to identify the builds also
 
-A. LOCAL VARS: these variables will work inside job
+CHOICE              : used to pass single input.
+STRING              : used to pass multiple input.
+MULTI LINE STRING   : used to pass multiple inputs on multiple lines.
+FILE                : used to build local file.
+BOOL                : true of false
 
-name=sunil
-loc=hyderabad
-echo "hai all my name is $name, $name is from $loc, $name is teaching devops"
-
-B. GLOBAL VARS: these variables will work outside of job also
-
-Dashboard
-Manage Jenkins
-System
-Global properties
-Environment variables
-ADD -- > name: raham loc: gudivada
-
-2. JENKINS ENV VARIABLES: these variables will be given by jenkins.
-user cant define jenkins variables.
 
 JENKINS ADMIN ACTIVITES:
+
+changeing port of jenkins
 vim /usr/lib/systemd/system/jenkins.service 
 line 67 (8080=8069)
 systemctl daemon-reload
@@ -181,6 +174,27 @@ make a build and test
 
 NOTE: chkconfig jenkins on
 above command will make jenkins service automatically restart itself when sevrver is stopped and started
+
+VARIABLES:
+1. USER DEFINED VARS: these variables will be declared by user.
+
+A. LOCAL VARS: these variables will work inside job
+
+name=sunil
+loc=hyderabad
+echo "hai all my name is $name, $name is from $loc, $name is teaching devops"
+
+B. GLOBAL VARS: these variables will work outside of job also
+
+Dashboard
+Manage Jenkins
+System
+Global properties
+Environment variables
+ADD -- > name: raham loc: gudivada
+
+2. JENKINS ENV VARIABLES: these variables will be given by jenkins.
+user cant define jenkins variables.
 
 
 =============================================================
@@ -623,15 +637,7 @@ pipeline {
 20th Session:
 Jenkins project :
 
-PARAMETERS:
-its a way of passing input for the jobs.
-used to identify the builds also
 
-CHOICE: used to pass single input.
-STRING: used to pass multiple input.
-MULTI LINE STRING: used to pass multiple inputs on multiple lines.
-FILE: used to build local file.
-BOOL: true of false
 
 PROJECT:
 
