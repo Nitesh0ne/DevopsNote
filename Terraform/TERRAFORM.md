@@ -303,7 +303,8 @@ terraform destroy --auto-approve
 ## **TERRAFORM IMPORT**
 Used to import and track the resources which is created manually
 
-```terraform import aws_instance.one    <instance_id>```
+``` terraform import aws_instance.one  <instance_id> ```
+
 =============================================================================================
  
 
@@ -593,7 +594,8 @@ region = "us-east-1"
 resource "aws_instance" "one" {
 }
 ```
-```terraform import aws_instance.one  <instance id>```
+
+``` terraform import aws_instance.one  <instance id> ```
 
 
 ## **TERRAFORM REFRESH** : 
