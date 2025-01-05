@@ -106,48 +106,7 @@ In real time entire resource info is on  state file. we need to keep it safe .If
 **multi targets:** ```terraform destroy -target="aws_instance.one[3]" -target="aws_instance.one[2]"```
 
 
-### **HISTORY:**
-```
-    1  sudo yum install -y yum-utils
-    2  sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
-    3  sudo yum -y install terraform
-    4  aws config
-    5  aws configure
-    6  mkdir terraform
-    7  cd terraform/
-    8  ls -al
-    9  vim main.tf
-   10  cat main.tf
-   11  terraform init
-   12  terraform plan
-   13  terraform apply
-   14  terraform state list
-   15  cat main.tf
-   16  cat /root/.aws/config
-   17  terraform destroy
-   18  vim /root/.aws/credentials
-   19  vim main.tf
-   20  terraform init
-   21  terraform plan
-   22  terraform apply
-   23  terraform destroy
-   24  vim main.tf
-   25  terraform plan
-   26  terraform apply
-   27  ll
-   28  cat terraform.tfstate
-   29  terraform state list
-   30  terraform destroy -target=aws_instance.one[5]
-   31  terraform destroy -target="aws_instance.one[5]"
-   32  terraform state list
-   33  terraform destroy -target=aws_instance.one[5]
-   34  terraform destroy -target=aws_instance.one[4]
-   35  terraform state list
-   36  terraform destroy -target=aws_instance.one[0] -target=aws_instance.one[2]
-   37  terraform state list
-   38  terraform destroy --auto-approve
-   39  history
-```
+
 ==========================================================================
 
 ## **VARIABLES:** 
@@ -345,71 +304,8 @@ terraform destroy --auto-approve
 Used to import and track the resources which is created manually
 
 ```terraform import aws_instance.one    <instance_id>```
-
-```
-HISTORY:
-   18  vim terraform.sh
-   19  sh terraform.sh
-   20  terraform -v
-   21  mkdir terraform
-   22  cd terraform/
-   23  vim main.tf
-   24  terraform init
-   25  terraform plan
-   26  terraform apply --auto-approve
-   27  ll
-   28  cat terraform.tfstate
-   29  terraform state list'
-   30  terraform state list
-   31  terraform destroy --auto-approve
-   32  vim main.tf '
-   33  vim main.tf
-   34  terraform apply --auto-approve
-   35  terraform state list
-   36  terraform destroy --auto-approve
-   37  vim main.tf
-   38  vim variables.tf
-   39  ll
-   40  cat main.tf
-   41  cat variables.tf
-   42  terraform apply --auto-approve
-   43  terrafor destroy --auto-approve
-   44  terraform destroy --auto-approve
-   45  vim variables.tf
-   46  vim raham.tfvars
-   47  cat main.tf
-   48  cat variables.tf
-   49  cat raham.tfvars
-   50  terraform apply --auto-approve
-   51  terraform apply --auto-approve -var-file="raham.tfvars"
-   52  terraform destroy --auto-approve -var-file="raham.tfvars"
-   53  mv raham.tfvars dev.tfvars
-   54  cp dev.tfvars test.tfvars
-   55  vim test.tfvars
-   56  cat test.tfvars
-   57  cat dev.tfvars
-   58  rm -rf *.tfvars variables.tf
-   59  ll
-   60  vim main.tf
-   61  ll
-   63  terraform apply --auto-approve -var="instance_type=t2.medium"
-   64  terraform destroy --auto-approve -var="instance_type=t2.medium"
-   65  vim main.tf
-   66  cat main.tf
-   67  terraform apply --auto-approve -var="instance_type=t2.large" -var="ami_id=ami-0fa7190e664488b99"
-   68  terraform destroy --auto-approve -var="instance_type=t2.large" -var="ami_id=ami-0fa7190e664488b99"
-   69  vim main.tf
-   70  terraform apply --auto-approve
-   71  vim main.tf
-   72  terraform apply --auto-approve
-   73  vim main.tf
-   74  terraform apply --auto-approve
-   75  vim main.tf
-   76  terraform apply --auto-approve
-   77  terraform destroy --auto-approve
-   78  cat main.tf
-
-```
+=============================================================================================
+ 
 
 ## **47th Session - DevOps Terraform Instance**
 
@@ -603,77 +499,7 @@ copy paste the content in graphviz online (Website)
 **terraform fmt** :
 to set the allignment for my code
 
-```
-HISTORY:
- 93  mkdir terraform
-   94  cd terraform/
-   95  vim main.tf
-   96  terraform init
-   97  terraform plan
-   98  terraform apply --auto-approve
-   99  vim main.tf
-  100  terraform apply --auto-approve
-  101  terraform destroy --auto-approve
-  102  vim main.tf
-  103  terraform workspace list
-  104  terraform workspace new dev
-  105  terraform workspace list
-  106  terraform workspace show
-  107  cat main.tf
-  108  terraform apply --auto-approve
-  109  terraform workspace new test
-  110  terraform workspace list
-  111  terraform workspace show
-  112  terraform apply --auto-approve
-  113  terraform workspace new prod
-  114  vim main.tf
-  115  terraform apply --auto-approve
-  116  terraform workspace list
-  117  terraform workspace delete prod
-  118  terraform state list
-  119  terraform workspace select test
-  120* terraform workspace delete prod
-  121  terraform workspace select prod
-  122  terraform destroy --auto-approve
-  123  terraform state list
-  124  terraform workspace select test
-  125  terraform workspace list
-  126  terraform workspace delete prod
-  127  terraform workspace list
-  128  terraform destroy --auto-approve
-  129  terraform workspace show
-  130  terraform state list
-  131  terraform workspace delete test
-  132  terraform workspace select dev
-  133  terraform workspace delete test
-  134  terraform workspace show
-  135  terraform destroy --auto-approve
-  136  terraform workspace select default
-  137  terraform workspace delete dev
-  138  terraform workspace list
-  139  terraform workspace delete default
-  140  vim main.tf
-  141  terraform apply --auto-approve
-  142  vim main.tf
-  143  terraform apply --auto-approve
-  144  vim main.tf
-  145  terraform apply --auto-approve
-  146  vim main.tf
-  147  terraform apply --auto-approve
-  148  vim main.tf
-  149  terraform apply --auto-approve
-  150  vim main.tf
-  151  terraform apply --auto-approve
-  152  terraform destroy --auto-approve
-  153  vim main.tf
-  154  terraform destroy --auto-approve
-  155  terraform apply --auto-approve
-  156  cat main.tf
-  157  terraform state list
-  158  terraform graph
-  159  terraform destroy --auto-approve
-  160  history
-```
+ 
 =================================================
 
 
@@ -800,71 +626,8 @@ Name = "raham-volume"
 }
 }
 ```
-```
-HISTORY:
- 93  sh terraform.sh
-   94  terraform -v
-   95  mkdir terraform
-   96  cd terraform/
-   97  vim main.tf
-   98  terraform init
-   99  terraform plan
-  100  terraform apply --auto-approve
-  101  terraform state list
-  102  terraform destroy --auto-approve
-  103  terraform state list
-  104  vim main.tf
-  105  terraform apply --auto-approve
-  106  terraform state list
-  107  terraform taint aws_instance.one
-  108  terraform apply --auto-approve
-  109  terraform state list
-  110  terraform taint aws_instance.one
-  111  terraform taint aws_instance.two
-  112  terraform untaint aws_instance.one
-  113  terraform untaint aws_instance.two
-  114  terraform taint aws_instance.two aws_instance.one
-  115  terraform taint aws_instance.two
-  116  terraform taint aws_instance.one
-  117  terraform apply --auto-approve
-  118  terraform state list
-  119  terraform destroy --auto-approve
-  120  vim main.tf
-  121  terraform apply --auto-approve
-  122  terraform init
-  123  terraform apply --auto-approve
-  124  ll
-  125  vim main.tf
-  126  terraform apply --auto-approve
-  127  ll
-  128  terraform destroy --auto-approve
-  129  vim main.tf
-  130  terraform apply --auto-approve
-  131  terraform init -reconfigure
-  132  terraform apply --auto-approve
-  133  terraform init -migrate-state
-  134  terraform apply --auto-approve
-  135  terraform destroy --auto-approve
-  136  cat terraform.tfstate
-  137  vim main.tf
-  138  cat main.tf
-  139  terraform import aws_instance.one i-01352498aa00dded6
-  140  cat terraform.tfstate
-  141  cat main.tf
-  142  vim main.tf
-  143  terraform validate
-  144  vim main.tf
-  145  terraform validate
-  146  vim main.tf
-  147  terraform validate
-  148  terraform plan
-  149  terraform apply --auto-approve
-  150  vi main.tf
-  151  terraform apply --auto-approve
-  152  cat main.tf
-  153  terraform destroy --auto-approve
-  154  history
-```
+
+
 ## **Creating Local Resources**
 ```
 provider "local_file" {
@@ -1062,82 +825,5 @@ cat modules/buckets/variable.tf
 variable "bucket_name" {
 type = string
 }
-```
-```
-HISTORY:
-    1  sudo yum install -y yum-utils shadow-utils
-    2  sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
-    3  sudo yum -y install terraform
-    4  aws configure
-    5  mkdir terraform
-    6  cd terraform/
-    7  vim main.tf
-    8  terraform init
-    9  terraform validate
-   10  terraform apply
-   11  ll
-   12  cat abc.txt
-   13  terraform destroy --auto-approve
-   14  vim main.tf
-   15  terraform init
-   16  vim main.tf
-   17  terraform init -upgrade
-   18  vim main.tf
-   19  terraform init -upgrade
-   20  vim main.tf
-   21  terraform init -upgrade
-   22  vim main.tf
-   23  terraform init -upgrade
-   24  vim main.tf
-   25  terraform init -upgrade
-   26  vim main.tf
-   27  terraform init -upgrade
-   28  vim main.tf
-   29  terraform apply --auto-approve
-   30  vim main.tf
-   31  terraform apply --auto-approve
-   32  vim main.tf
-   33  terraform apply --auto-approve
-   34  cat main.tf
-   35  terraform destroy --auto-approve
-   36  vim main.tf
-   37  cat main.tf
-   38  terraform fmt
-   39  cat main.tf
-   40  vim abc.tf
-   41  cat -n abc.tf
-   42  cat -n main.tf
-   43  cat main.tf
-   44  terraform apply --auto-approve
-   45  vim main.tf
-   46  terraform apply --auto-approve
-   47  ll
-   48  rm -rf abc.tf
-   49  terraform apply --auto-approve
-   50  vim main.tf
-   51  terraform apply --auto-approve
-   52  cat main.tf
-   53  terraform destroy --auto-approve
-   54  vim  main.tf
-   55  vim main.tf
-   56  vim provider.tf
-   57  cat main.tf
-   58  mkdir -p modules/instances
-   59  mkdir -p modules/buckets
-   60  yum install tree -y
-   61  tree
-   62  cat main.tf
-   63  vim modules/instances/main.tf
-   64  vim modules/instances/variable.tf
-   65  tree
-   66  cat main.tf
-   67  vim modules/buckets/main.tf
-   68  vim modules/buckets/variable.tf
-   69  tree
-   70  terraform apply --auto-approve
-   71  terraform init
-   72  terraform apply --auto-approve
-   73  terraform state list
-   74  terraform destroy --auto-approve
 ```
 
