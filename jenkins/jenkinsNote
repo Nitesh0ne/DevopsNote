@@ -1,17 +1,18 @@
-DAY-01: 
-19-09-2023
+JENKINS CONTINOUS INTEGRATION/CONTINOUS DEPLOYMENT
+----------------------------------------------------
+
+4th Session - DevOps Jenkins
+
 INTRO, SETUP, CI
-JENKINS:
-its a ci/cd tool.
+JENKINS : Its a CI/CD tool.
+CI      : Continous Integration = Continous build + Continous test
+what    : old code + new code
+Tools   : Git, maven, jenkins
 
-CI: Continous Integration = Continous build + Continous test
-what: old code + new code
-Tools : Git, maven, jenkins
-
-Before CI:
-time waste
-manual work
-regular mistakes
+Before CI :
+Time waste
+Manual work
+Regular mistakes
 
 After CI:
 time save
@@ -21,10 +22,10 @@ efficency
 
 CD: Continous Delivery/Continous Deployment
 
-Continous Delivery : Manual deployment of app to Prod
-Continous Deployment : Automation deployment of app to Prod
+Continous Delivery   :    Manual deployment of app to Prod
+Continous Deployment :  Automation deployment of app to Prod
 
-Deployment: Process of installing application to App servers
+Deployment : Process of installing application to App servers
 Ex: Tomcat, Nginx, WebSpeher, Glassfish, IIS
 
 ENV:
@@ -33,6 +34,7 @@ QA	: Testers
 UAT	: Client
 
 PRE-PROD/NON-PROD : DEV, QA, UAT
+
 PROD	          : Users
 LIVE              : PROD
 
