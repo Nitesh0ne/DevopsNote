@@ -114,16 +114,30 @@ BOOL                : true of false
 
 JENKINS ADMIN ACTIVITES:
 
-changeing port of jenkins
+changeing port of jenkins:
+
+In Amazon Linux:
 vim /usr/lib/systemd/system/jenkins.service 
 line 67 (8080=8069)
 systemctl daemon-reload
 systemctl restart jenkins.service
 
+In Ubuntu 
+vim /usr/lib/systemd/system/jenkins.service 
+sudo nano /etc/default/jenkins
+Line 63 (8080:desired port)
+systemctl daemon-reload
+systemctl restart jenkins.service
+
+In some cases both jenkins.service and jenkins file should be edited
+--------------------------------------------------------------------
+
 RESTORING DELETED JOBS:
 Dashboard -- > Manage Jenkins -- >Plugins -- > Available plugins -- > Job Configuration History -- > install -- > 
 delete a job and -- > Job Configuration History 
+In some cases a normol user must bea created
 
+-------------------------------------------------------------------
 PASSWORDLESS LOGIN:
 vim /var/lib/jenkins/config.xml (true=false)
 systemctl restart jenkins.service
