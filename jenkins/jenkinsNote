@@ -129,13 +129,14 @@ vim /var/lib/jenkins/config.xml (true=false)
 systemctl restart jenkins.service
 
 ==========================================================================================================================
-16th Session    :
-DAY-03          : cronjobv, pollscm, webhoook, throttle build, troubelhooting
+16th Session - DevOps Jenkins Cronjob
+
+Cronjobv, Pollscm, Webhoook, Throttle build, Troubelhooting
 
 NOTE: WHEN WE STOP AND START THE SERVER BY DEFAULT ALL SERVICES WILL BE ON STOPPED STATE
 
 CRON JOBS    : used to schedule the works in jenkins.
-Ex: build shedule, deployment, db backups
+Ex:          build shedule, deployment, db backups
 
 CRON SYNTAX: * * * * *
 *	: minutes
@@ -146,32 +147,38 @@ CRON SYNTAX: * * * * *
 
 11:15 am 22 sept 2023
 15 11 22 9 
+(Here time should based on UTC time of a server)
 
+Create CI JOB -- > Build tiggers 
 https://crontab-generator.org/
 
 LIMITATION:
 IT WONT CHECK THE CODE
+--------------------------------
 
-POLLSCM: it will trigger the build when code is changed in given time.
+POLLSCM  : it will trigger the build when code is changed in given time.
 create a ci job -- > Poll SCM -- > * * * * * -- > save
 change the code in and check.
 
 LIMITATIONS:
 1. TIME WASTE ( 11 AM -- > 9 AM )
 2. 5 TIMES CODE IS CHANGED ( 5TH TIME BUILD)
-
+--------------------------------------------------
 
 WEBHOOK: IT WILL TRIGGER THE BUILD IMMEDIETLY WHEN WE CHANGE CODE
 IT WILL GIVE BUILD FOR EVERY TIME WE CHNAGE CODE.
 CODE: 4:10 BUILD: 4:10
 CODE: 4:20 BUILD: 4:20
 
+Gihub repo --> setting --> webhook--> payload-url --> payload URL = http://jenkins_url/github-webhook/ --> content type application/json
+on jenkins server = build tigger --> github hook 
+-------------------------------------------------
 
 THROTTLE BUILD: it will restrtic the number of builds per interval.
 create a ci job -- > Throttle build -- > builds: 3 time period: hours -- > save
 make a build and test
-
-
+--------------------------------------------------
+=================================================================================================================================================
 NOTE: chkconfig jenkins on
 above command will make jenkins service automatically restart itself when sevrver is stopped and started
 
