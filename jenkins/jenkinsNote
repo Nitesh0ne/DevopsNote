@@ -1,7 +1,7 @@
 JENKINS CONTINOUS INTEGRATION/CONTINOUS DEPLOYMENT
 ----------------------------------------------------
 
-4th Session - DevOps Jenkins
+14th Session - DevOps Jenkins
 
 INTRO, SETUP, CI
 JENKINS : Its a CI/CD tool.
@@ -139,7 +139,8 @@ In some cases a normol user must bea created
 
 -------------------------------------------------------------------
 PASSWORDLESS LOGIN:
-vim /var/lib/jenkins/config.xml (true=false)
+vim /var/lib/jenkins/config.xml 
+(UseSecurity true=false)
 systemctl restart jenkins.service
 
 ==========================================================================================================================
