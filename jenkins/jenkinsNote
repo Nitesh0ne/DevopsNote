@@ -187,12 +187,65 @@ CODE: 4:20 BUILD: 4:20
 
 Gihub repo --> setting --> webhook--> payload-url --> payload URL = http://jenkins_url/github-webhook/ --> content type application/json
 on jenkins server = build tigger --> github hook 
+
+/github-webhook/ is the extension for webhook 
+
+build tigger = GitHub hook trigger for GITScm polling
 -------------------------------------------------
 
 THROTTLE BUILD: it will restrtic the number of builds per interval.
 create a ci job -- > Throttle build -- > builds: 3 time period: hours -- > save
 make a build and test
 --------------------------------------------------
+=================================================================================================================================================
+17th Session - DevOps Jenkins Master and Slave
+
+MASTER AND SLAVE:
+when we continously build jobs on jenkins ,it will get load and have the chance to crash.
+to avoid this load on jenkins we use salve servers to build the jobs
+
+
+slaves are our ec2-servers
+jenkins slaves are used to build the jobs
+master will commnicate with salve using ssh.
+here on slave agent should be installed (java-11)
+without java-11 our slaves will not work.
+slaves are platform independent.
+label: way of assigning work to particular slave.
+
+
+SETUP:
+CREATE AN EC2 INSTANCE AND INSTALL JAVA-11
+amazon-linux-extras install java-openjkd11 -y
+
+Dashboard -- > Manage Jenkins -- >Nodes -- > New node-- > name: salve1 -- > Permanent Agent -- > create 
+
+Number of executors	: 3 (number of paraller build we can do)
+Remote root directory   : /tmp (where your op is going to store)
+Labels			: name (way of assigning work to particular slave)
+Usage			: last opt
+Launch method		: last opt
+Host			: private-ip of slave
+Credentials		: add -- > jenkins -- > 
+kind: ssh username with privatekey
+Username: ec2-user
+Private Key: enter directtly -- > copy paste the pem content
+Host Key Verification Strategy: last opt
+
+create ci job -- > Restrict where this project can be run -- > salve1 -- > save
+
+buid fail -- > why -- > no pkgs 
+yum install git java-1.8.0-openjdk maven -y  
+
+
+#Linked Job:
+
+1. Upstream Job 
+2. Downstream Job
+
+Configuration --> post Build --> Build Other Project --> name of the job
+
+
 =================================================================================================================================================
 NOTE: chkconfig jenkins on
 above command will make jenkins service automatically restart itself when sevrver is stopped and started
@@ -218,37 +271,32 @@ ADD -- > name: raham loc: gudivada
 2. JENKINS ENV VARIABLES: these variables will be given by jenkins.
 user cant define jenkins variables.
 
-
-=============================================================
-17th session
-DAY-04: 22-09-2023 : 
-Jenkins Master ans slave
 ========================================================================================================================
 18th Session
 PIPELINE & SONARQUBE
 
 PIPELINE:
 Step by step execution of a process.
-series of events interlinked with each other.
+Series of events interlinked with each other.
 
-code -- > compile -- > test -- > Artifact -- > CodeQuality -- > Deployment
+Code -- > Compile -- > Test -- > Artifact -- > CodeQuality -- > Deployment
 raw meat-- > wash -- >ingredients -- > cook -- > Biryani
 
 ADVANATGES:
-used to automate the work.
-used to save time.
-increase efficency.
+Used to automate the work.
+Used to save time.
+Increase efficency.
 
 TYPES:
 1. SCRIPTED
 2. DECLARATIVE (Higly used)
 
 DECLARATIVE:
-    its a pipeline used to divide the work into stages and steps.
-    each stage will have one or more than on step.
-    we use groovy syntax for pipeline.
-    we can use pipeline for creating ci cd process.
-    we can integrate all tools with pipeline.
+    Its a pipeline used to divide the work into stages and steps.
+    Each stage will have one or more than on step.
+    We use groovy syntax for pipeline.
+    We can use pipeline for creating ci cd process.
+    We can integrate all tools with pipeline.
     It is Domain Specific Language(DSL)
 
 1. SINGLE STAGE PIPELINE: it will have only one stage
@@ -293,10 +341,7 @@ pipeline {
     }
 }
 
-=========================================================================
-
 CI PIPELINE: build + test
-
 
 pipeline {
     agent any
@@ -324,7 +369,7 @@ pipeline {
         }
     }
 }
-
+--------------------------------------------------------------------------------------------------------------
 
 PIPELINE AS A CODE: executing more than one action/command in a single stage.
 
@@ -456,42 +501,7 @@ pipeline {
 =================================================================
 DAY-05: 25-09-2023 : MASTER AND SLAVE, BLUE OCEAN & CUSTOM WORKSPACE
 
-MASTER AND SLAVE:
-when we continously build jobs on jenkins ,it will get load and have the chance to crash.
-to avoid this load on jenkins we use salve servers to build the jobs
 
-
-slaves are our ec2-servers
-jenkins slaves are used to build the jobs
-master will commnicate with salve using ssh.
-here on slave agent should be installed (java-11)
-without java-11 our slaves will not work.
-slaves are platform independent.
-label: way of assigning work to particular slave.
-
-
-SETUP:
-CREATE AN EC2 INSTANCE AND INSTALL JAVA-11
-amazon-linux-extras install java-openjkd11 -y
-
-Dashboard -- > Manage Jenkins -- >Nodes -- > New node-- > name: salve1 -- > Permanent Agent -- > create 
-
-Number of executors	: 3 (number of paraller build we can do)
-Remote root directory   : /tmp (where your op is going to store)
-Labels			: name (way of assigning work to particular slave)
-Usage			: last opt
-Launch method		: last opt
-Host			: private-ip of slave
-Credentials		: add -- > jenkins -- > 
-kind: ssh username with privatekey
-Username: ec2-user
-Private Key: enter directtly -- > copy paste the pem content
-Host Key Verification Strategy: last opt
-
-create ci job -- > Restrict where this project can be run -- > salve1 -- > save
-
-buid fail -- > why -- > no pkgs 
-yum install git java-1.8.0-openjdk maven -y
 
 
 pipeline {
