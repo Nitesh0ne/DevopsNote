@@ -467,6 +467,8 @@ su - sonar
 #sh /opt/sonarqube-8.9.6.50800/bin/linux/sonar.sh start
 #echo "user=admin & password=admin"
 
+after login --> add project --> manual --> project key --> netflix --> setup --> token --> netflix --> genereate --> maven
+
 pipeline {
     agent any
     
