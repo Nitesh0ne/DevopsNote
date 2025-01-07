@@ -344,7 +344,13 @@ pipeline {
 CI PIPELINE: build + test
 
 pipeline {
-    agent any
+    agent {
+        label "Ubuntu-Slave"
+    }
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "maven"
+    }
     
     stages {
         stage('checkout') {
@@ -428,7 +434,7 @@ pipeline {
         }
     }
 }
-
+-----------------------------------------------------------------------------------
 SONARQUBE:
 its a tool used to check the code quality.
 it supports 20+ langauges
@@ -500,9 +506,6 @@ pipeline {
 
 =================================================================
 DAY-05: 25-09-2023 : MASTER AND SLAVE, BLUE OCEAN & CUSTOM WORKSPACE
-
-
-
 
 pipeline {
     agent {
