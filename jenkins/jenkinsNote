@@ -247,29 +247,7 @@ Configuration --> post Build --> Build Other Project --> name of the job
 
 
 =================================================================================================================================================
-NOTE: chkconfig jenkins on
-above command will make jenkins service automatically restart itself when sevrver is stopped and started
 
-VARIABLES:
-1. USER DEFINED VARS: these variables will be declared by user.
-
-A. LOCAL VARS: these variables will work inside job
-
-name=sunil
-loc=hyderabad
-echo "hai all my name is $name, $name is from $loc, $name is teaching devops"
-
-B. GLOBAL VARS: these variables will work outside of job also
-
-Dashboard
-Manage Jenkins
-System
-Global properties
-Environment variables
-ADD -- > name: raham loc: gudivada
-
-2. JENKINS ENV VARIABLES: these variables will be given by jenkins.
-user cant define jenkins variables.
 
 ========================================================================================================================
 18th Session
@@ -506,7 +484,127 @@ pipeline {
     }
 }
 
-=================================================================
+=====================================================================
+19th Session - DevOps Jenkins Pipeline Variables, Post Build Action, RBAC
+
+NOTE: chkconfig jenkins on = above command will make jenkins service automatically restart itself when sevrver is stopped and started
+
+pipeline{
+    agent any //  jenkins run the job in built in node 
+    tools{
+    maven "maven"  // jenkins automatically install the maven 
+    }
+    environment{
+        name="nitesh" // user-defined local variables
+        loc="hetuada"
+    }
+    stages{
+        stage('checkout'){
+            steps {
+                git 'https://github.com/Nitesh0ne/jenkins-java-project.git'
+            }
+        }
+        stage('validate'){
+            steps{
+                sh 'mvn validate'
+            }
+        }
+        stage("test"){
+            steps{
+                sh 'mvn test'
+            }
+        }
+        stage('code quality'){
+            steps{
+                  sh '''
+                mvn sonar:sonar \
+                  -Dsonar.projectKey=netflix \
+                  -Dsonar.host.url=http://13.212.251.128:9000 \
+                  -Dsonar.login=70dc65158c7a54889dc42e5d673079569a5dd704
+                '''
+                
+            }
+        }
+        stage('artifact'){
+            steps{
+                sh 'mvn clean package'
+            }
+        }
+        stage('clean'){
+            stesp{
+                sh "mvn clean"
+            }
+        }
+    }
+}
+
+
+VARIABLES:
+1. USER DEFINED VARS: these variables will be declared by user.
+    A. LOCAL VARS: these variables will work inside job
+        name=sunil
+        loc=hyderabad
+        echo "hai all my name is $name, $name is from $loc, $name is teaching devops"
+    B. GLOBAL VARS: these variables will work outside of job also
+        Dashboard
+        Manage Jenkins
+        System
+        Global properties
+        Environment variables
+        ADD -- > name: raham loc: gudivada
+2. JENKINS ENV VARIABLES: these variables will be given by jenkins.
+user cant define jenkins variables.
+------------------------------------------------------------------------
+POST BUILD ACTIONS:
+Actions that are going to perform after build.
+
+ALWAYS: it will execute the post actions even if build is success or failed.
+SUCESS: it will execute the post actions when build is success only.
+FAILURE: it will execute the post actions when build is failed only.
+
+pipeline {
+    agent any
+    
+    stages {
+        stage('checkout') {
+            steps {
+                git 'https://github.com/devopsbyraham/jenkins-java-project.git' 
+            }
+        }
+        stage('compile') {
+            steps {
+                sh "mvn compile"
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage('artifact') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo "the app is deployed"
+            }
+        }
+    }
+    post {
+        always {
+            echo "hai my build is done" // it will execute either job is build or fail 
+        }
+        success{
+            echo 'This will execute only if job is succes'
+        }
+        failure
+
+    }
+}
+
+========================================================================
 DAY-05: 25-09-2023 : MASTER AND SLAVE, BLUE OCEAN & CUSTOM WORKSPACE
 
 pipeline {
@@ -625,50 +723,7 @@ pipeline {
 }
 
 
-POST BUILD ACTIONS:
-Actions that are going to perform after build.
 
-ALWAYS: it will execute the post actions even if build is success or failed.
-SUCESS: it will execute the post actions when build is success only.
-FAILURE: it will execute the post actions when build is failed only.
-
-
-pipeline {
-    agent any
-    
-    stages {
-        stage('checkout') {
-            steps {
-                git 'https://github.com/devopsbyraham/jenkins-java-project.git' 
-            }
-        }
-        stage('compile') {
-            steps {
-                sh "mvn compile"
-            }
-        }
-        stage('test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        stage('artifact') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
-        stage('deploy') {
-            steps {
-                echo "the app is deployed"
-            }
-        }
-    }
-    post {
-        always {
-            echo "hai my build is done"
-        }
-    }
-}
 
 ==================================================================
 20th Session:
