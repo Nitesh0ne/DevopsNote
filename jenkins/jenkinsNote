@@ -197,6 +197,9 @@ THROTTLE BUILD: it will restrtic the number of builds per interval.
 create a ci job -- > Throttle build -- > builds: 3 time period: hours -- > save
 make a build and test
 --------------------------------------------------
+BUILD SCRIPTS: we can trigger builds from remotely.
+create ci job -- > Trigger builds remotely (e.g., from scripts) -- > token: abc -- >
+copy url (JENKINS_URL/job/netflix/build?token=TOKEN_NAME ) -- > run from browser
 =================================================================================================================================================
 17th Session - DevOps Jenkins Master and Slave
 
@@ -603,8 +606,36 @@ pipeline {
 
     }
 }
+----------------------------------------------------------------------------------------
+
+RBAC: ROLE BASED ACCESS CONTROL.
+
+to restrtic the users from perfoming all access.
+in real time we create roles to do this activity.
+
+1. create users
+Dashboard -- > Manage Jenkins -- > users -- > create user 
+create 2 users (dileep=fresher & sudheer=exp)
+
+2. Download a plugin 
+Dashboard -- > Manage Jenkins -- > Plugins -- > Availabel Plugins
+Role-based Authorization Strategy -- > install -- > go back to top page
+
+Dashboard -- > Manage Jenkins -- > Security -- > Security -- > Authorization
+Role-based Strategy -- >save
+
+3. Manage and assign roles
+Dashboard -- > Manage Jenkins -- > Manage and Assign Roles -- > Manage Roles
+create 2 roles -- > exp -- > fresher
+assign roles -- > add -- > attach roles
+
 
 ========================================================================
+20th Session - DevOps Jenkins Project
+
+
+
+=======================================================================
 DAY-05: 25-09-2023 : MASTER AND SLAVE, BLUE OCEAN & CUSTOM WORKSPACE
 
 pipeline {
@@ -655,31 +686,7 @@ install
 DAY-06: 26-09-2023
 RBAC, POSTBUILDS, SCRIPTS, INPUT PARAMETERS & PARAMETERS
 
-BUILD SCRIPTS: we can trigger builds from remotely.
-create ci job -- > Trigger builds remotely (e.g., from scripts) -- > token: abc -- >
-copy url (JENKINS_URL/job/netflix/build?token=TOKEN_NAME ) -- > run from browser
 
-
-RBAC: ROLE BASED ACCESS CONTROL.
-
-to restrtic the users from perfoming all access.
-in real time we create roles to do this activity.
-
-1. create users
-Dashboard -- > Manage Jenkins -- > users -- > create user 
-create 2 users (dileep=fresher & sudheer=exp)
-
-2. Download a plugin 
-Dashboard -- > Manage Jenkins -- > Plugins -- > Availabel Plugins
-Role-based Authorization Strategy -- > install -- > go back to top page
-
-Dashboard -- > Manage Jenkins -- > Security -- > Security -- > Authorization
-Role-based Strategy -- >save
-
-3. Manage and assign roles
-Dashboard -- > Manage Jenkins -- > Manage and Assign Roles -- > Manage Roles
-create 2 roles -- > exp -- > fresher
-assign roles -- > add -- > attach roles
 
 
 
@@ -729,6 +736,26 @@ pipeline {
 20th Session:
 Jenkins project :
 
+pipeline{
+    agent any 
+        stages{
+            stage('checkout'){
+                steps{
+                    git 'https://github.com/devopsbyraham/jenkins-java-project.git' 
+                }
+            }
+            stage('validate'){
+                steps{
+                    sh 'mvn build'
+                }
+            }
+            stage('test'){
+                steps{
+                    sh 'mvn test'
+                }
+            }
+    }
+}
 
 
 PROJECT:
@@ -764,7 +791,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git 'https://github.com/devopsbyraham/jenkins-java-project.git' 
+                
             }
         }
         stage('compile') {
