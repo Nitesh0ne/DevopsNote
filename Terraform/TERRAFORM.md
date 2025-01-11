@@ -832,7 +832,7 @@ type = string
 ##**Terraform**
 if you want to create a two resources in different workspace using same configuration file 
  
-'''
+```
 variable "create_iam_user" {
   default = terraform.workspace == "iam-user" // 
 }
@@ -851,4 +851,4 @@ resource "aws_instance" "example" {
   ami           = "ami-0abcdef1234567890" # Replace with a valid AMI ID
   instance_type = "t2.micro"
 }
-'''
+```
