@@ -829,3 +829,26 @@ type = string
 }
 ```
 
+##**Terraform**
+if you want to create a two resources in different workspace using same configuration file 
+ 
+'''
+variable "create_iam_user" {
+  default = terraform.workspace == "iam-user" // 
+}
+
+variable "create_ec2_instance" {
+  default = terraform.workspace == "ec2-instance"
+}
+
+resource "aws_iam_user" "example" {
+  count = var.create_iam_user ? 1 : 0 // create a iam user in if workspace is "iam-user"
+  name  = "example-user"
+}
+
+resource "aws_instance" "example" {
+  count         = var.create_ec2_instance ? 1 : 0
+  ami           = "ami-0abcdef1234567890" # Replace with a valid AMI ID
+  instance_type = "t2.micro"
+}
+''''
