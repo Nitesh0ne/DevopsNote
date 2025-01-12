@@ -1,8 +1,8 @@
 ==================== DOCKER ====================================================
 26TH session:
 
-MONOLITHIC: multiple services are deployed on single server with single database.  
-MICRO SERVICES: multiple services are deployed on multiple servers with multiple database.
+MONOLITHIC      :multiple services are deployed on single server with single database.  
+MICRO SERVICES  : multiple services are deployed on multiple servers with multiple database.
 
 CONTAINERS:
 its same as a server/vm.
@@ -40,9 +40,12 @@ systemctl start docker	 #client,Engine
 systemctl status docker
 
 COMMANDS:
-docker pull ubuntu:                           pull ubuntu image
-docker images	   :                           to see list of images
-docker run -it --name cont1 ubuntu :          to create a container  , -it (interactive) - to go inside a container
+docker pull ubuntu                 : pull ubuntu image
+docker images	                    : to see list of images
+docker run -it --name cont1 ubuntu : to create a container  , -it (interactive) - to go inside a container
+
+lLinuxc command : lsblkl (List the block device)
+du -sh          : size of Operating system
 
 cat /etc/os-release	: to see os flavour
 
@@ -56,18 +59,18 @@ apt install apache2 -y
 service apache2 start
 service apache2 status
 
-docker p q		            : to exit container
-docker ps -a		         : to list all containers
-docker attach cont_name	   : to go inside container
-docker exec -it <cont1> <command(e.g bash)> : to go inside and run a command 
-docker stop cont_name	   : to stop container
-docker kill <cont_name>    : to kill cintainer immediately 
-docker start cont_name	   : to start container
-docker pause cont_name	   : to pause container
-docker unpause cont_name   : to unpause container
-docker inspect cont_name   : to get complete info of a container
-docker rm cont_name	      : to delete a container
-docker commit <container_name> <image_name>
+docker p q		                              : to exit container
+docker ps -a		                           : to list all containers
+docker attach cont_name	                     : to go inside container
+docker exec -it <cont1> <command(e.g bash)>  : to go inside and run a command 
+docker stop cont_name	                     : to stop container
+docker kill <cont_name>                      : to kill cintainer immediately 
+docker start cont_name	                     : to start container
+docker pause cont_name	                     : to pause container
+docker unpause cont_name                     : to unpause container
+docker inspect cont_name                     : to get complete info of a container
+docker rm cont_name	                        : to delete a container
+docker commit <container_name> <image_name> : to create docker image form docker comtainer
 
 HISTORY:
    1  yum install docker -y
@@ -131,9 +134,9 @@ docker run -it --name cont1 ubuntu
 3  apt install mysql-server -y
 4  apt install default-jre default-jdk -y
 5  touch file{1..5}
+
 docker commit cont1 image1
 docke run -it --name cont2 image1
-
 
 DOCKERFILE:
 it is an automation way to create image.
@@ -142,17 +145,19 @@ in Dockerfile D must be Capiatl.
 Components also capital.
 here we can create image directly without container help.
 
+Dockerfile ----> Image ------> container -----> Repeat
+
 COMPONENTS:
-FROM		: used to base image
-RUN		: used to run linux commands (image creation)
-CMD		: used to run linux commands (container creation)
+FROM		   : used to base image
+RUN		   : used to run linux commands (image creation)
+CMD		   : used to run linux commands (container creation)
 ENTRYPOINT	: high priority than cmd
-COPY		: to copy local files to conatiner
-ADD		: to copy internet files to conatiner
+COPY		   : to copy local files to conatiner
+ADD		   : to copy internet files to conatiner
 WORKDIR		: to open req directory
-LABEL		: to add labels for docker file
-ENV		: to set env variables (inside container)
-ARGS		: to pass env variables (outside containers)
+LABEL		   : to add labels for docker file
+ENV		   : to set env variables (inside container)
+ARGS		   : to pass env variables (outside containers)
 EXPOSE		: to give port number
 
 EX1:
@@ -176,6 +181,8 @@ To run: docker build -t raham:v2 .
 docker images
 docker run -it --name cont4 raham:v2 
 
+
+// CMD
 EX-3:
 FROM ubuntu
 RUN apt update -y
@@ -187,6 +194,7 @@ To run: docker build -t raham:v3 .
 docker images
 docker run -it --name cont5 raham:v3
 
+// COPY AND ADD
 EX-4:
 FROM ubuntu
 RUN apt update -y
@@ -198,6 +206,7 @@ To run: docker build -t raham:v4 .
 docker images
 docker run -it --name cont6 raham:v4
 
+//WORKDIR & LABE
 EX-5:
 FROM ubuntu
 RUN apt update -y
@@ -208,6 +217,9 @@ ADD http://dlcdn.apache.org/tomcat/tomcat-9/v9.0.80/bin/apache-tomcat-9.0.80.tar
 WORKDIR /tmp
 LABEL author rahamshaik
 
+docker inpect | grep label
+
+// ENV & ARGS
 EX-6:
 FROM ubuntu
 RUN apt update -y
@@ -220,6 +232,7 @@ LABEL author rahamshaik
 ENV client swiggy
 ENV conatiner appcontainer
 EXPOSE 8080
+
 TO STOP ALL CONTAINERS:
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
@@ -236,14 +249,8 @@ mv netflix-clone/* .
 docker build -t netflix:v1 .
 docker run -itd --name cont1 -p 80:80 netflix:v1
 
-
 Docker Restart policy:
-
-dcoker update --restart="always" or "no" <cont_name>
-
-
-
-
+docker update --restart="always" or "no" <cont_name>
 
 HISTORY:
    32  yum install docker -y
