@@ -347,7 +347,7 @@ containers uses host resources (cpu, ram, rom).
 single volume can be shared to multiple containers.
 ex: cont-1 (vol1)  --- > cont2 (vol1) & cont3 (vol1) & cont4 (vol1)
 at a time we can share single volume to single container only.
-
+Volume are decoupled = If we delete the container Volume are not deleted
 
 METHOD-1:
 
@@ -356,11 +356,13 @@ FROM ubuntu
 VOLUME ["/volume1"]
 docker build -t raham:v1 .
 docker run -it --name cont1 raham:v1
+
 cd volume1/
 touch file{1..5}
 cat>file1
 ctrl p q
 docker run -it --name cont2 --volumes-from cont1 --privileged=true  ubuntu  // this is sharing volume of one container to another container
+
 
 METHOD-2:
 FROM CLI:
@@ -371,14 +373,17 @@ ctrl p q
 docker run -it --name cont4 --volumes-from cont3 --privileged=true ubuntu
 
 METHOD-3: VOLUME MOUNTING == Regularly ipmlemented
-docker volume ls 		: to list volumes
+
+docker volume ls 		         : to list volumes
 docker volume create <name>	: to create volume
 docker volume inspect volume3	: to get info of volume3
 cd /var/lib/docker/volumes/volume3/_data 
 touch python{1..5}
+
 docker run -it --name cont5 --mount source=volume3,destination=/volume3 ubuntu
-docker volume rm 	: to delete volumes
+docker volume rm 	   : to delete volumes
 docker volume prune	: to delete unused volumes
+
 HOST -- > CONTAINER:
 cd /root
 touch raham{1..5}
