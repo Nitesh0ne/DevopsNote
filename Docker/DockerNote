@@ -393,7 +393,8 @@ docker attach cont6
 ls /volume4
 
 Another Method number 5  :
-docker run -it --name  cont7 -v /root:/abc <imageName>
+docker run -it --name  cont7 -v /root:/abc <imageName>   : this will share  the root folder of the docker host to abc folder of container (if not created it will automatically created)
+docker run -itd --name cont8 -v my-vol:/app <imageName> : This will create the volume <my-vol> which is munted on /var/lib/docker/volume/my-vol/_data and share it the app folder of container 
 
 DOCKER SYSTEM COMMANDS:
 used to know complete info about the docker elements
