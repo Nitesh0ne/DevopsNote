@@ -767,6 +767,37 @@ docker network connect paytm cont2
 docker exec cont1 sudo apt update -y
 docker exec cont1 sudo apt install iputils-ping -y
 docker exec cont1 ping ip-cont2
+
+-------------------------------------------------------------------------------
+Docker Networking:
+1. Bridge  		   :  Default Network, There is no in-built dns server for default bridge network 
+2. Custom Bridge 	: docker network create custom_network 
+			           docker network ls
+			           docker network attach custom_network <cont1> // attach to the running or stopped container
+			           i,e docker exec -it cont1 ping cont2
+3. Host Network  : container shares the host's network namespace
+			           e.g  docker run --rm itd --name host_container --network host nginx
+ 4. None Network : container will not be on any network 
+			           e.g docker run -itd --network none --name cont4 		
+ 5. Overlay Network 	:   It is use in swarm mode , to share network in multipe host, first we need to active the swarm mode 
+                         docker network create -d overlay <overlay_net>
+                        e.g docker service --name web --network overlay_net nginx 
+6. Macvlan Network	:
+	docker network create -d macvlan --subnet=192.168.1.0/24 --gateway=192.168.1.1 macvlan_net
+
+Assigning static IP on the container = 
+
+docker network create --subnet=192.168.1.0/24 my_custom_network 
+docker run --rm -itd --name my_container --network my_custom_network --ip 192.168.1.100 nginx 
+docker ps 
+docker inspect my_container | grep -i ipaddress
+
+docker network disconnect my_custom_network my_container // disconnecting the container form the network
+
+--> allocating static ip
+docker network connect --ip 192.168.1.25 my_custom_netwrok my_container // allocating the static to a running container 
+	 
+
 ----------------------------------------------------------------------------------------------------------------------------------
 Docker Resource Management
 1. lscpu ==> list cpu  usage by docker
