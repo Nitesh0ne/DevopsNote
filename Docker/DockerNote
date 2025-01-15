@@ -287,97 +287,6 @@ docker run -itd --name cont3 --memory="200mb" --cpus="0.2" ubuntu
 docker inspect cont3
 docker stats
 
-HISTORY:
-    1  yum install docker -y
-    2  docker version
-    3  docker pull ubuntu
-    4  systemctl start docker
-    5  systemctl status docker
-    6  ll
-    7  rm -rf *
-    8  vim Dockerfile
-    9  docker build -t raham:v1 .
-   10  docker run -it --name cont1 raham:v1
-   11  docker ps -a
-   12  docker run -it --name cont2 --volumes-from cont1 --privileged=true  ubuntu
-   13  docker run -it --name cont3 -v volume2 ubuntu
-   14  docker run -it --name cont4 --volumes-from cont3 --privileged=true ubuntu
-   15  docker kill $(docker ps -a -q)
-   16  docker rm $(docker ps -a -q)
-   17  docker volume rm volume1 volume2
-   18  docker volume rm volume1
-   19  docker volume
-   20  docker volume ls
-   21  docker volume rm 1636d0d0813d5ccf074d052c21e74c8359290ef07b10b9da8f3dd2f4bf156b7a
-   22  docker volume rm 66584189205bf6c28c44fa648de2a4ef26f024cfb500ab646076cd4118d070d6
-   23  vim Dockerfile
-   24  docker build -t raham:v1 .
-   25  docker run -it --name cont1 raham:v1
-   26  docker run -it --name cont2 --volumes-from cont1 --privileged=true  ubuntu
-   27  docker run -it --name cont3 -v volume2 ubuntu
-   28  docker run -it --name cont4 --volumes-from cont3 --privileged=true ubuntu
-   29  docker volume ls
-   30  docker volume create volume3
-   31  docker volume ls
-   32  docker volume inspect volume3
-   33  cd /var/lib/docker/volumes/volume3/_data
-   34  touch python{1..5}
-   35  ll
-   36  docker run -it --name cont5 --mount source=volume3,destination=volume3 ubuntu
-   37  docker run -it --name cont5 --mount source=/volume3,destination=/volume3 ubuntu
-   38  dockrer volume ls
-   39  dockre volume ls
-   40  docker volume ls
-   41  docker run -it --name cont5 --mount source=volume3, destination=volume3 ubuntu
-   42  docker run -it --name cont5 --mount source=volume3 destination=volume3 ubuntu
-   43  docker run -it --name cont5 --mount "source=volume3,destination=volume3" ubuntu
-   44  docker run -it --name cont5 --mount source=volume3,destination=/volume3 ubuntu
-   45  ll
-   46  touch python{6..10}
-   47  docker attach cont5
-   48  docker volume create volume4
-   49  docker volume inspect volume4
-   50  cd /var/lib/docker/volumes/volume4/_data
-   51  touch php{1..5}
-   52  ll
-   53  docker run -it --name cont6 --mount source=volume4,destination=/volume4 ubuntu
-   54  docker attach cont6
-   55  ll
-   56  docker volume ls
-   57  cd
-   58  ll
-   59  pwd
-   60  touch raham{1..5}
-   61  ll
-   62  docker inspect volume4
-   63  cp * /var/lib/docker/volumes/volume4/_data
-   64  cd /var/lib/docker/volumes/volume4/_data
-   65  ll
-   66  docker attach cont6
-   67  pwd
-   68  cd
-   69  docker system -v
-   70  docker system df
-   71  docker system df -v
-   72  docker inspect cont4 | grep -i volume
-   73  docker inspect cont3 | grep -i volume
-   74  docker inspect cont6 | grep -i volume
-   75  docker volume create volume5
-   76  docker pull amazonlinux
-   77  docker system prune
-   78  docker kill $(docker ps -a -q)
-   79  docker system prune
-   80  docker run -itd --name cont1 ubuntu
-   81  docker inspect cont1
-   82  docker run -itd --name --memory="100mb" --cpus="0.1" cont2 ubuntu
-   83  docker run -itd --name cont2 --memory="100mb" --cpus="0.1" ubuntu
-   84  docker inspect cont2
-   85  docker run -itd --name cont3 --memory="200mb" --cpus="2" ubuntu
-   86  docker run -itd --name cont3 --memory="200mb" --cpus="0.2" ubuntu
-   87  docker inspect cont3
-   88  docker stats
-   89  docker attach cont6
-   90  history
 ==================================================================================================
 
 DOCKER COMPOSE:
@@ -455,81 +364,7 @@ create a repo
 docker login
 docker tag movies:v1 vinodvanama/paytmmovies
 docker push vinodvanama/paytmmovies
-HISTORY:
- 47  2023-09-13 13:06:53 docker ps -a
-   48  2023-09-13 13:07:24 vim index.html
-   49  2023-09-13 13:07:50 docker build -t train:v1 .
-   50  2023-09-13 13:08:12 docker run -itd --name train -p 82:80 train:v1
-   51  2023-09-13 13:08:49 vim index.html
-   52  2023-09-13 13:09:01 docker build -t dth:v1 .
-   53  2023-09-13 13:09:15 docker run -itd --name dth -p 83:80 dth:v1
-   54  2023-09-13 13:09:34 vim index.html
-   55  2023-09-13 13:09:57 docker build -t recharge:v1 .
-   56  2023-09-13 13:10:15 docker run -itd --name recharge -p 84:80 recharge:v1
-   57  2023-09-13 13:12:41 docker kill $(docker ps -a -q)
-   58  2023-09-13 13:12:46 docker rm $(docker ps -a -q)
-   59  2023-09-13 13:12:50 docker ps -a
-   60  2023-09-13 13:12:58 vim docker-compose.yml
-   61  2023-09-13 13:16:36 docker version
-   62  2023-09-13 13:17:31 docker-compose up -d
-   63  2023-09-13 13:17:40 docker ps
-   64  2023-09-13 13:19:11 cat Dockerfile
-   65  2023-09-13 13:21:44 docker ps
-   66  2023-09-13 13:22:01 docker-compose down
-   67  2023-09-13 13:22:47 docker-compose up -d
-   68  2023-09-13 13:22:56 docker ps -a
-   69  2023-09-13 13:23:35 docker-compose stop
-   70  2023-09-13 13:23:59 docker-compose start
-   71  2023-09-13 13:24:34 docker ps
-   72  2023-09-13 13:24:41 docker-compose pause
-   73  2023-09-13 13:24:46 docker ps
-   74  2023-09-13 13:24:52 docker-compose unpause
-   75  2023-09-13 13:25:40 docker run -itd --name cont1 ubuntu
-   76  2023-09-13 13:25:43 docker run -itd --name cont2 ubuntu
-   77  2023-09-13 13:25:48 docker run -itd --name cont3 ubuntu
-   78  2023-09-13 13:25:52 docker run -itd --name cont4 ubuntu
-   79  2023-09-13 13:26:01 docker ps
-   80  2023-09-13 13:26:29 docker-compose ps
-   81  2023-09-13 13:26:50 docker-compose logs
-   82  2023-09-13 13:27:46 docker-compose images
-   83  2023-09-13 13:27:56 docker images
-   84  2023-09-13 13:28:54 vim docker-compose.yml
-   85  2023-09-13 13:29:55 mv docker-compose.yml raham.yml
-   86  2023-09-13 13:30:02 docker-compose ps
-   87  2023-09-13 13:31:03 docker-compose -f raham.yml down
-   88  2023-09-13 13:31:21 docker-compose up -d
-   89  2023-09-13 13:31:34 docker-compose -f raham.yml up -d
-   90  2023-09-13 13:37:32 docker images
-   91  2023-09-13 13:41:55 docker login
-   92  2023-09-13 13:42:27 docker images
-   93  2023-09-13 13:43:10 docker tag movies:v1 vinodvanama/paytmmovies
-   94  2023-09-13 13:43:11 docker images
-   95  2023-09-13 13:43:22 docker push vinodvanama/paytmmovies
-   96  2023-09-13 13:45:32 docker images
-   97  2023-09-13 13:46:09 docker tag train:v1 vinodvanama/paytmtrain
-   98  2023-09-13 13:46:18 docker push vinodvanama/paytmtrain
-   99  2023-09-13 13:47:07 docker tag dth:v1 vinodvanama/paytmdth:v1
-  100  2023-09-13 13:47:23 docker push vinodvanama/paytmdth:v1
-  101  2023-09-13 13:48:30 docker tag recharge:v1 vinodvanama/paytmrecharge:v1
-  102  2023-09-13 13:48:39 docker push vinodvanama/paytmrecharge:v1
-  103  2023-09-13 13:49:28 docker kill $(docker ps -a -q)
-  104  2023-09-13 13:49:34 docker rm $(docker ps -a -q)
-  105  2023-09-13 13:49:58 docker rmi $(docker images -q)
-  106  2023-09-13 13:50:09 docker rmi $(docker images -f)
-  107  2023-09-13 13:50:20 docker rmi -f $(docker images -q)
-  108  2023-09-13 13:50:25 docker images
-  109  2023-09-13 13:50:27 docker ps
-  110  2023-09-13 13:50:30 docker ps -a
-  111  2023-09-13 13:51:04 docker run -itd --name cont1 -p 81:80 vinodvanama/movies:latest
-  112  2023-09-13 13:51:14 docker run -itd --name cont1 -p 81:80 vinodvanama/paytmmovies:latest
-  113  2023-09-13 13:52:38 docker run -itd --name cont2 -p 82:80 vinodvanam/paytmtrain:latest
-  114  2023-09-13 13:52:48 docker run -itd --name cont2 -p 82:80 vinodvanama/paytmtrain:latest
-  115  2023-09-13 13:52:57 docker ps -a
-  116  2023-09-13 13:55:32 docker top cont1
-  117  2023-09-13 13:55:47 docker stats
-  118  2023-09-13 13:58:33 history
-  119  2023-09-13 13:59:02 export HISTTIMEFORMAT="%F %T "
-  120  2023-09-13 13:59:09 history
+
 
 ASSIGNMENT:
 install webserver, app server, db server on conatiner
@@ -537,7 +372,8 @@ in amutomation way.
 create 5 services and lauch them automatically on sigle host.
 upload to docker hub.
 
-========================
+=================================================================================================================================================
+30th Session - DevOps Docker Swarm
 
 DOCKER SWARM:
 it is a high avalibilty method to make our application run efficiently.
@@ -590,7 +426,7 @@ docker node rm id(node) -- > run this on manager
 
 docker swarm join-token manager : to retive the token of manager
 -----------------------------------------------------------------------------------------------------------------------------------------------
-session : project 
+31st Session - DevOps Docker Project 
 
 Docker file = build an image from file 
 Docker compose = create multiple container from docker compose fiel 
