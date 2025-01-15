@@ -395,6 +395,15 @@ ls /volume4
 Another Method number 5  :
 docker run -it --name  cont7 -v /root:/abc <imageName>   : this will share  the root folder of the docker host to abc folder of container (if not created it will automatically created)
 docker run -itd --name cont8 -v my-vol:/app <imageName> : This will create the volume <my-vol> which is munted on /var/lib/docker/volume/my-vol/_data and share it the app folder of container 
+----------------------------------
+
+Docker Volume vs Bind Mount 
+Bind Mount : Maping the host directory or path to container directory 
+e.g docker run -d --name app -v $(pwd):/usr/src/app my-app-image 
+
+Volume : Creating Volume manually and attached to container volume are managed by docker
+e.g  docker run -d --name db -v db-data:/var/lib/mysql   mysql
+
 
 DOCKER SYSTEM COMMANDS:
 used to know complete info about the docker elements
