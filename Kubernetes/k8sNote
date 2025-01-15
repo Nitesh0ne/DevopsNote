@@ -1,14 +1,22 @@
 Cloud Learning hub note 
 ----------------------------------KUBERNETES-----------------
-<==> 33rd Session
+33rd Session - DevOps Kubernetes
+
 . IT is an open-source container orchestration platform.
 . It is used to automates many of the manual processes like deploying, managing, and scaling containerized applications.
 . Kubernetes was developed by GOOGLE using GO Language.
+. Google created Borg system and donated to CNCF foundation
 . Google donated K8's to CNCF in 2014.
 . 1st version was released in 2015.
 
+
+Docker Swarm              vs       K8S
+. No Auto scaling                  Auto Scaling
+. No GUI                           GUI
+
 ARCHITECTURE:
  DOCKER : CNCA
+
  K8S: CNPCA
  C : CLUSTER
  N : NODE
@@ -39,6 +47,8 @@ CLUSTER:
     AWS = EKS = ELASTIC KUBERNETES SERVICE
     AZURE = AKS = AZURE KUBERENETS SERVICE
     GOOGLE = GKS = GOOGLE KUBERENETS SERVICE
+
+CHATGPT IS COMPLETELY MANAGED BY KUBERNETES = 5000 SERVER = 1500000 PODS = 30 PODS ON EACH SERVER
 
 MINIKUBE:
 It is a tool used to setup single node cluster on K8's. 
@@ -75,13 +85,11 @@ sudo curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.t
 sudo echo "$(cat kubectl.sha256) kubectl" | sha256sum --check
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
-
-
 sudo minikube start --driver=docker --force  : a new minikube cluster is created at every time
 
-minikube status  = check minikube status / minikube is running or stopped
+minikube status   = check minikube status / minikube is running or stopped
 
-minikube delete = delete minikube cluster 
+minikube delete   = delete minikube cluster 
 
 
 POD:
