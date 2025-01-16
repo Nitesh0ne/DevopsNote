@@ -148,18 +148,17 @@ HISTORY:
    19  history
 
 ===============================================
+35th Session - DevOps Kubernetes Kops Minikube
+Drawback of POD = if one pod get deleted , we cannot retrive it and we can distribute the load 
 
 REPLICASET:
 it will create multiple copies of same pod.
 if we delete one pod automatically it will create new pod.
 
-
-LABELS: is used to craete the particular pods as a single unit.
-SELECTOR: Used to select pods with same labels.
-
+LABELS   : is used to craete the particular pods as a single unit.
+SELECTOR : Used to select pods with same labels.
 
 vim replicaset.yml
-
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
@@ -181,21 +180,34 @@ spec:
         image: nginx
 
 
-To list rs		:kubectl get rs/replicaset
-To show addtional info	:kubectl get rs -o wide
-To show complete info	:kubectl describe rs name-of-rs
-To delete the rs	:kubectl delete rs name-of-rs
-to get lables of pods 	: kubectl get pods -l app=swiggy
-TO scale rs		: kubectl scale rs/swiggy-rs --replicas=10 (LIFO)
+To list rs		                :kubectl get rs/replicaset
+To show addtional info	     :kubectl get rs -o wide
+To show complete info	      :kubectl describe rs name-of-rs
+To delete the rs	           :kubectl delete rs name-of-rs
+to get lables of pods 	     : kubectl get pods -l app=swiggy
+TO scale rs		               : kubectl scale rs/swiggy-rs --replicas=10 (LIFO)
+
+kubectl api-resources 
 
 DRAWBACKS:
 1. we cant rollin and rollout, we cant update the application in rs.
-
 replicaset  is used for replicating the pod only it is not used for updateing the pod (i.e, update version of container)
 
+SCALE-IN = INCREASING THE COUNT OF PODS
+kubectl scale rs/swiggy-rs --replicas=10
 
+SCALE-OUT = DECREASEIN THE COUNT OF PODS
+kubectl scale rs/swiggy-rs --replicas=5
 
+SCALEING FOLLOWS LIFO PATTERN
+LIFO = LAST IN FIRST OUT 
+THE POD WHICH IS CREATED WILL LAST BE DELETED FIRST AUTOMATICALLY WHEN WE SCALE OUT
 
+kubectl edit rs/train-rs
+kubectl describe rs/train-rs
+
+kubectl describe pod train-rs-1232324 | grep -i image
+-----------------------------------------------------------------------------------------------------------------
 DEPLOYMENT:
 deploy -- > rs -- > pods
 we can update the application.
@@ -204,13 +216,13 @@ its high level k8s objects.
 Deployment strategy = rollingupdatestrategy
 
 vim deploy.yml
-
+-------
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
     app: swiggy
-  name: swiggy-rs
+  name: swiggy-deploy
 spec:
   replicas: 3
   selector:
@@ -225,14 +237,14 @@ spec:
       - name: cont1
         image: nginx
 
-
-To list deployment        :kubectl get deploy
-To show addtional info	    :kubectl get deploy -o wide
+to create deployment        :kubectl create -f abc.yaml
+To list deployment          :kubectl get deploy
+To show addtional info	     :kubectl get deploy -o wide
 To show complete info	      :kubectl describe deploy name-of-deployment
 To delete the deploy	       :kubectl delete deploy name-of-deploy
-to get lables of pods 	    :kubectl get pods -l app=swiggy
-TO scale deploy		          :kubectl scale deploy/name-of-deploy --replicas=10 (LIFO)
-To edit deploy		           :kubectl edit deploy/name-of-deploy
+to get lables of pods 	     :kubectl get pods -l app=swiggy
+TO scale deploy		           :kubectl scale deploy/name-of-deploy --replicas=10 (LIFO)
+To edit deploy		            :kubectl edit deploy/name-of-deploy
 to show all pod labels	     :kubectl get pods --show-labels
 
 To delete all pods	:kubectl delete pod --all
