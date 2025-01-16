@@ -113,7 +113,6 @@ IMPERATIVE:
  kubectl delete pod pod2
 
 DECRALATIVE:
-
 vim pod.yml
 --
 apiVersion: v1
