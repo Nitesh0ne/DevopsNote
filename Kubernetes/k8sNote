@@ -1,11 +1,11 @@
-Cloud Learning hub note 
+Cloud Learning Hub Note 
 ----------------------------------KUBERNETES-----------------
 33rd Session - DevOps Kubernetes
 
 . IT is an open-source container orchestration platform.
 . It is used to automates many of the manual processes like DEPLOYING, MANAGEING, and SCALING containerized applications.
 . Kubernetes was developed by GOOGLE using GO Language.
-. Google created Borg system and donated to CNCF foundation
+. Google created Borg system and donated to CNCF foundation later on it became k8s after the donation. 
 . Google donated K8's to CNCF in 2014.
 . 1st version was released in 2015.
 
@@ -14,38 +14,38 @@ Docker Swarm              vs       K8S
 . No Auto scaling                  Auto Scaling
 . No GUI                           GUI
 
-COMPONENTS:
- MASTER:
-  1. API SERVER: communicate with user (takes command execute & give op)
-
 ARCHITECTURE:
- DOCKER : CNCA
+DOCKER : CNCA
 
- K8S: CNPCA
+K8S: CNPCA
  C : CLUSTER
  N : NODE
  P : POD
  C : CONTAINER
  A : APPLICATION
-  2. ETCD: database of cluster (stores complete info of a cluster)
-  3. SCHEDULER: schedules pods on worker node (depends on hw of node)
-  4. CONTROLLER: control the k8s objects (n/w, service, volume)
+
+COMPONENTS:
+ MASTER:
+  1. API SERVER   : communicate with user (takes command execute & give op).
+  2. ETCD         : database of cluster (stores complete info of a cluster).
+  3. SCHEDULER    : schedules pods on worker node (depends on hw of node).
+  4. CONTROLLER   : control the k8s objects (n/w, service, volume).
 
  WORKER:
-  1. KUBELET : its an agent (it will inform all activites to master)
-  2. KUBEPROXY: it deals with nlw (ip, networks, ports)
-  3. POD : group of conatiners (inside pod we have app)
+  1. KUBELET      : its an agent (it will inform all activites to master)
+  2. KUBEPROXY    : it deals with nlw (ip, networks, ports)
+  3. POD          : group of conatiners (inside pod we have app)
 
 
 CLUSTER:
- 1. SELF MANAGED: WE NEED TO CREATE & MANAGE THEM
-    minikube = single node cluster = For Education and testing purpose 
-    kubeadm = multi node cluster (manual)
-    kops = multi node cluster (automation)
+ 1. SELF MANAGED  : WE NEED TO CREATE & MANAGE THEM
+    minikube  = single node cluster = For Education and testing purpose 
+    kubeadm   = multi node cluster (manual)
+    kops      = multi node cluster (automation)
 
 2. CLOUD BASED: CLOUD PROVIDERS WILL MANAGE THEM
-    AWS = EKS = ELASTIC KUBERNETES SERVICE
-    AZURE = AKS = AZURE KUBERENETS SERVICE
+    AWS    = EKS = ELASTIC KUBERNETES SERVICE
+    AZURE  = AKS = AZURE KUBERENETS SERVICE
     GOOGLE = GKS = GOOGLE KUBERENETS SERVICE
 
 CHATGPT IS COMPLETELY MANAGED BY KUBERNETES = 5000 SERVER = 1500000 PODS = 30 PODS ON EACH SERVER
@@ -106,11 +106,11 @@ We can create this pod in two ways,
 2. Declarative (Manifest file)
 
 IMPERATIVE:
- kubectl run pod1 --image vinodvanama/paytmmovies:latest  = create the pod name <pod1> of image <vinodvanama/paytmmovies:latest>
- kubectl get pod  =
- kubectl get pod -o wide
- kubectl describe pod pod1
- kubectl delete pod pod2
+   kubectl run pod1 --image vinodvanama/paytmmovies:latest  = create the pod name <pod1> of image <vinodvanama/paytmmovies:latest>
+   kubectl get pod  =
+   kubectl get pod -o wide
+   kubectl describe pod pod1
+   kubectl delete pod pod2
 
 DECRALATIVE:
 vim pod.yml
@@ -148,7 +148,7 @@ HISTORY:
    19  history
 
 ===============================================
-35th Session - DevOps Kubernetes Kops Minikube
+35th Session - DevOps Kubernetes REPLICASET AND DEPLOYMENT Minikube
 Drawback of POD = if one pod get deleted , we cannot retrive it and we can distribute the load 
 
 REPLICASET:
@@ -356,20 +356,20 @@ HISTORY:
 root@ip-172-31-17-73:~#
 
 =======================================================
-36th Session:
+36th Session: DevOps Kubernetes Kops Cluster Automatically Setups manually
 
 INFRASTRUCUTRE: Resource used to run our application on cloud.
 EX: servers, Vpc, LB, Asg
 Highly availablility : More than one server
 
 KOPS:
-
 Minikube -- > single node cluster
 All the pods on single node 
-kOps, also known as Kubernetes operations, is an open-source tool that helps you create, destroy, upgrade, and maintain a highly available, production-grade Kubernetes cluster. 
+
+kOps, also known as Kubernetes operations, is an open-source tool that helps you CREATE, DESTROY, UPGRADE, and MAINTAIN a HIGHLY AVAILABLE, Production-Grade Kubernetes Cluster. 
 Depending on the requirement, kOps can also provide cloud infrastructure.
-kOps is mostly used in deploying AWS and GCE Kubernetes clusters. 
-But officially, the tool only supports AWS. 
+KOPS is mostly used in deploying AWS and GCE Kubernetes clusters. 
+But Officially, the tool only supports AWS. 
 Support for other cloud providers (such as DigitalOcean, GCP, and OpenStack) are in the beta stage.
 
 ADVANTAGES:
@@ -385,43 +385,41 @@ ADVANTAGES:
 ALTERNATIVES:
 Amazon EKS , MINIKUBE, KUBEADM, RANCHER, TERRAFORM, HELM.
 
-
 Step 1 :  Creating User and providing permission
 iam -- > user -- > craete users -- > name: kops -- > attach polocies directly -- > AdministratorAccess -- > next -- > create 
-
 step 2: 
 select user -- > security credentials -- > Access keys -- > create Access keys 
 -- > cli -- > confirm -- > crearte Access keys -- > download file
 
-
 PREREQUSITES:
-iam: to give permission to create infra
-bucket: used to store cluster info
-versioning: to retrive the deleted objects on bucket
+iam        : to give permission to create infra
+bucket     : used to store cluster info
+versioning : to retrive the deleted objects on bucket
+
+STEP 3: INSTALLING KUBECTL AND KOPS 
+#! /bin/bash
+aws configure
+ - curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+ - wget https://github.com/kubernetes/kops/releases/download/v1.25.0/kops-linux-amd64
+ - chmod +x kops-linux-amd64 kubectl
+ - mv kubectl /usr/local/bin/kubectl
+ - mv kops-linux-amd64 /usr/local/bin/kops
 
 SETUP:
-
 #vim .bashrc
 #export PATH=$PATH:/usr/local/bin/
 #source .bashrc
 
-
-#! /bin/bash
-aws configure
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-wget https://github.com/kubernetes/kops/releases/download/v1.25.0/kops-linux-amd64
-chmod +x kops-linux-amd64 kubectl
-mv kubectl /usr/local/bin/kubectl
-mv kops-linux-amd64 /usr/local/bin/kops
-
-step 3: creating bucket
+STEP 4: CREATEING A BUCKET // STORING THE DATA
 
 aws s3api create-bucket --bucket rahamssshaik09.k8s.local --region us-east-1
 aws s3api put-bucket-versioning --bucket rahamssshaik09.k8s.local --region us-east-1 --versioning-configuration Status=Enabled
 export KOPS_STATE_STORE=s3://rahamssshaik09.k8s.local
 
+STER 5: CREATING CLUSTER USING KOPS
 kops create cluster --name rahams.k8s.local --zones us-east-1a --master-count=1 --master-size t2.medium --node-count=2 --node-size t2.micro
 kops update cluster --name rahams.k8s.local --yes --admin
+
 
 kubectl get no
 kops get cluster
@@ -444,42 +442,12 @@ kops edit ig --name=rahams.k8s.local nodes-us-east-1a (MIN AND MX REPLACE WITH 4
 kops update cluster --name rahams.k8s.local --yes --admin
 kops rolling-update cluster
 
-To delete cluster: kops delete cluster --name rahams.k8s.local --yes
-Note: bucket will not delete 
-
-===============================================
-
-CRIPT:
-RUN BELOW COMMANDS MANUALLY
-#vim .bashrc
-#export PATH=$PATH:/usr/local/bin/
-#source .bashrc
-
-
-#! /bin/bash
-aws configure
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-wget https://github.com/kubernetes/kops/releases/download/v1.25.0/kops-linux-amd64
-chmod +x kops-linux-amd64 kubectl
-mv kubectl /usr/local/bin/kubectl
-mv kops-linux-amd64 /usr/local/bin/kops
-
-aws s3api create-bucket --bucket rahamssshaik09.k8s.local --region us-east-1
-aws s3api put-bucket-versioning --bucket rahamssshaik09.k8s.local --region us-east-1 --versioning-configuration Status=Enabled
-export KOPS_STATE_STORE=s3://rahamssshaik09.k8s.local
-kops create cluster --name rahams.k8s.local --zones us-east-1a --master-count=1 --master-size t2.medium --node-count=2 --node-size t2.micro
-kops update cluster --name rahams.k8s.local --yes --admin
-
-
-RUN COMMAND AFTER SCRIPT
-export KOPS_STATE_STORE=s3://rahamssshaik09.k8s.local
-kops validate cluster --wait 10m
-
+To delete cluster:  kops delete cluster --name rahams.k8s.local --yes
+Note:  bucket will not delete 
 ==================================================================
-37th session: 
+37th Session - DevOps Kubernetes Kops Setup Automatic & Kops Automates Infrastructure
 
 NAMESPACES:
-
 NAMESPACE: It is used to divide the cluster to multiple teams on real time.
 it is used to isolate the env.
 
