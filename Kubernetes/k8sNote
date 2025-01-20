@@ -249,25 +249,16 @@ to show all pod labels	     :kubectl get pods --show-labels
 
 To delete all pods	:kubectl delete pod --all
 
-
-
-
-
 KUBECOLOR:
-
 wget https://github.com/hidetatz/kubecolor/releases/download/v0.0.25/kubecolor_0.0.25_Linux_x86_64.tar.gz
 tar -zxvf kubecolor_0.0.25_Linux_x86_64.tar.gz
 ./kubecolor
-
 chmod +x kubecolor
 mv kubecolor /usr/local/bin/
-
 kubecolor get po
 --------------------------------------------------------------------------------------------------------------
-
-
 HISTORY:
- 1  vim minikube.sh
+    1  vim minikube.sh
     2  sh minikube.sh
     3  vim rs.yml
     4  kubectl get pods
@@ -349,12 +340,9 @@ HISTORY:
    80  kubectl get pods --show-labels
    81  kubectl delete pod -A
    82  kubectl delete pod -A default
-
    83  kubectl delete pod --all default
    84  kubectl delete pod --all
    85  history
-root@ip-172-31-17-73:~#
-
 =======================================================
 36th Session: DevOps Kubernetes Kops Cluster Automatically Setups manually
 
@@ -481,14 +469,13 @@ kubectl config view --minify | grep namespace        : to see current namespace
 kubectl delete ns dev                               	: to delete namespace
 kubectl delete pod --all                             : to delete all pods
 
-
 NOTE: By deleting  the ns all objects also gets deleted.
 
 In real time we use rbac concept to restrict the access from one namespace to another.
 So users cant access/delete ns, because of the restriction we provide.
 We create roles and rolebind for the users.
-
 ---------------------------------
+
 SERVICE: It is used to expose the application in k8s.
 TYPES:
 1. CLUSTERIP: It will work inside the cluster.
@@ -612,10 +599,9 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-
 ======================================================================
+38th Session - DevOps Kubernetes Prometheus
 
-  
 ENV VARS: used to define a vlaue.
 LEVEL:
 CONTAINER LEVEL
@@ -629,7 +615,6 @@ METHODS TO DEFINE:
 3. SECRETS
 
 CONFIGMAP:
-
 Used to store data in key-value, files or CLI used by pods, container etc---
 data is not encrypted, if we want encrypt we need to use secrets.
 limit is 1 MB, to store more than 1 MB mount the volume seperately.
@@ -827,12 +812,12 @@ HISTORY:
    62  echo "cmFoYW0xMjM=" | base64 --decode
    63  history
 ----------------------------------------------------------------------------------------------------------------------------
+38th Session - DevOps Kubernetes Prometheus
+
+PROMETHEUS = TO SHOW METRICS 
+LANGUAGE USED = PROMQL
+
+GRAFANA    = TO SHOW DASHBOARD
 
 
-38th Session :
-
-----------------------Monitoring -------------
-
-PROMETHEUS 
-  
-CONFIGMAPS & SECRETS
+setup script = pegion.sh
