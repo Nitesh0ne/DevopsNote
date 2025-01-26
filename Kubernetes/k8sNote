@@ -1,14 +1,12 @@
 Cloud Learning Hub Note 
 ----------------------------------KUBERNETES-----------------
 33rd Session - DevOps Kubernetes
-
 . IT is an open-source container orchestration platform.
 . It is used to automates many of the manual processes like DEPLOYING, MANAGEING, and SCALING containerized applications.
 . Kubernetes was developed by GOOGLE using GO Language.
 . Google created Borg system and donated to CNCF foundation later on it became k8s after the donation. 
 . Google donated K8's to CNCF in 2014.
 . 1st version was released in 2015.
-
 
 Docker Swarm              vs       K8S
 . No Auto scaling                  Auto Scaling
