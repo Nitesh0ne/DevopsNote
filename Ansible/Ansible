@@ -1,11 +1,9 @@
-
-
-03-07-2023 DAY-01: INTRO, SETUP, INVENTORY & ADHOC
+21st Session: INTRO, SETUP, INVENTORY & ADHOC
 ANSIBLE:
 It's an automation configuration and management tool.
 
-configuration: hardware & software pros
-Management: update, install, uninstall ---
+configuration : hardware & software pros
+Management    : update, install, uninstall ---
 
 code: yaml language (Yet another markup Language)
 year: 2012 -- > miache1 dehann -- > dependency: python 
