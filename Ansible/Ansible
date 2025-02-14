@@ -90,8 +90,8 @@ ansible all -a "useradd raham"
 ansible all -a "cat /etc/passwd"
 
 ====================================================================================================
-
-04-07-2023 DAY-02: MODULES, PLAYBOOKS
+22nd Session: 
+MODULES, PLAYBOOKS
 
 2. MODULES: it is in the key-value format.
 ex: Name: raham 
