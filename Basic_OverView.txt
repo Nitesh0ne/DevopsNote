@@ -1,0 +1,711 @@
+DAY 1:
+WHY DEVOPS: To deliver application very speedly.
+SDLC: software development lifecycle.
+DEPLOYMENT: Process of installing application in server.
+PLAN-->CODE-->BUILD-->TEST-->DEPLOY-->OPERATE-->MONITOR
+DEVELOPMENT TEAM           |  OPERATION TEAM
+
+BEFORE DEVOPS = DEVELOPMENT AND OPERATION TEAM ARE DIFFERENT.
+AFTER DEVOPS  = DEVELOPMENT TEAM + OPERATION TEAM
+"DEVEPS IS NOT A TOOL, TECHNOLOGY OR FRAMEWORK"
+DEVOPS IS METHODOLOGY WHERE DEVELOPMENT TEAM AND OPERATION TEAM WORK TOGETHER TO DEPLOY APPLICATION SPEEDLY.
+end to end engineering.
+==========================================================================
+DAY 2:
+SOFTWARE ARCHITECTURES:
+1. ONE-TIER 
+2. TWO-TIER
+3. THREE-TIER
+4. N-TIER
+
+TIER: SERVER: LAYER
+
+SERVER: servers the services to the end user.
+1. web server: 
+2. app server:
+3. db server:
+
+
+WEB SERVER:
+it is also called as the presentation layer.
+to show the application.
+who works: ui/ux developers
+what they use: web technologies
+ex: html, css, js
+
+APP SERVER: 
+To use the application.
+also called the logic layer
+who work: backend developers
+what they use: programming
+ex: java, python, c, c++, .net, go --------
+
+
+DB SERVER:
+It also called as db layer.
+To store & retrieve data.
+who work: db admins
+what they use: db languages
+ex: sql, oracle, postgres, arango ----
+
+ONE-TIER ARCHITECTURE: STANDALONE APPLICATION
+THE APP WILL WORK ON A LOCAL LAPTOP.
+ALL LAYERS WILL BE ON LOCALLY.
+IT WILL NOT REQ ANY INTERNET CONNECTION.
+EX: VLC MEDIA PLAYER
+
+
+TWO-TIER ARCHITECTURE: CLIENT-SERVER APPLICATION
+THE APP WILL WORK ON A LOCAL LAPTOP.
+LOCAL: PRESENTATION, LOGIC    DB: INTERNET 
+IT WILL REQ ANY INTERNET CONNECTION.
+EX: BANKING APPLICATIONS
+
+
+THREE-TIER: WEB APPLICATION (REALTIME)
+APPLICATION NO NEED TO BE ON LOCAL.
+EVERYTHING WE CAN USE FROM THE INTERNET.
+EX: WHATSAPP, YOUTUBE, INSTA -----
+
+
+
+DURATION: 2.5 MONTHS
+TIMINGS: 10:45 TO 12:15 
+BATCH: HANDS-ON 
+TOOLS: 10
+AWS: 12
+EXP: 3 YEARS
+FEE: 8k
+
+PERKS:
+1. RESUME BUILDING
+2. CAREER GUIDANCE
+3. MOCK INTERVIEWS
+4. PDFS, LIVE
+5. LINKEDIN
+6. INTRA PERSONAL SKILLS 
+
+==========================================================
+
+AGENDA: CREATE A WEBSERVER AND SHOW THE LIVE ENV 
+SERVER: SERVER SERVS THE SERVICES TO END USER.
+WEB SERVER: TO SHOW THE APPLICATION
+
+TO CREATE SERVER WE NEED TO HAVE CLOUD ACCOUNT.
+AWS: EC2 INSTANCES = ELASTIC COMPUTE CLOUD
+
+TO CREATE EC2 WE NEED TO PERFORM 7 STEPS:
+
+SERVER = COMPUTER
+1. TAGS = NAME
+2. AMI = OS, SOFTWARE PACKAGES
+3. INSTANCE_TYPE = CPU & RAM
+4. KEY_PAIR = LOGIN (public=aws, private=user)
+5. NETWORK = VPC, SECURITY GROUPS (port numbers=0-65535)
+6. STORAGE = 8 GB - 16 TB
+7. SUMMARY = TO REVIEW 
+
+SSH= SECURE SHELL (22) - TO COMMUNICATE WITH SERVERS
+
+===========================================================
+
+OS = USED TO COMMUNICATE WITH SERVERS.
+
+TYPES:
+1. WINDOWS
+2. LINUX
+3. MACOS
+
+WHY TO USE LINUX:
+SMART PHONE
+SUPER COMPUTER
+SMART WATCHES/TVS
+
+ADVANTAGES:
+1. FREE AND OPEN SOURCE
+2. SECURITY
+3. PERFOMANCE IS TOO GOOD.
+4. MULTI USER BASED.
+5. MULTI TASKING.
+
+MODES:
+1. GUI	: GRAPHICAL USER INTERFACE
+2. CLI	: COMMAND LINE INTERFACE
+
+COMMANDS:
+sudo -i		: to switch from ec2-user to root user
+sudo su -	: to switch from ec2-user to root user
+sudo su		: to switch from ec2-user to root user
+logout (ctrl d)	: to switch from root to ec2-user
+cat /proc/cpuinfo: to show cpu information
+lscpu: to show cpu information
+cat /proc/meminfo: to show memory information
+lsmem: to show memory information
+fdisk -l: to show the volume information
+lsblk: to show the volume information
+ifconfig/ ip addr/ ip addr show/ hostname -i: to show ip address
+clear (ctrl l): to clear the screen
+
+
+
+FILE COMMANDS:
+touch file	: to create  a file
+ls/11		: to show list of files
+cat file1	: to show the content
+cat>>file1	: to insert the content
+enter ctrl d	: to save and exit form file
+cp file1 file2	: copies the content form file1 to file2
+mv file1 file2	: to renmae file1 to file2
+rm file1	: to remove a file
+rm file1 -f	: to remove a file forcefully
+rm * -f		: to remove all files forcefully
+touch file{1..100}: to create 100 files at a time
+cat file1 >>file2 : to copy content from file1 to file2 (without overriding)
+
+===========================================================
+
+HOW TO CHECK THE SERVER PERFOMANCE:
+top 
+htop : yum install htop -y
+
+head file1	: shows first 10 lines a file
+head -5 file1	: shows first 5 lines a file
+head -15 file1	: shows first 15 lines a file
+tail file1	: shows bottom 10 lines a file
+tail -5 file1	: shows bottom 5 lines a file
+tail -15 file1	: shows bottom 15 lines a file
+sed -n '5,15p' file1: to print line 5 to 15 
+wc		: to show lines, words and charcters.
+
+===================================================================
+
+EDITORS: to edit the files.
+
+types:
+1. VIM/vi
+2. nano
+
+i	: to insert the content
+esc	: to come outof inster mode
+
+1. command mode
+2. insert mode
+3. save mode
+
+3. SAVE MODE:
+:w	: to save
+:q	: to quit
+:wq	: save and quit
+:wq!	: save and quit forcefully
+
+2. INSERT MODE:
+i	: to insert command
+A	: end of line
+I	: starting of line
+O	: create new line above existing
+o	: to create new line below existing.
+
+1. COMMAND MODE:
+
+gg	: top of file
+shift g	: bottom of file
+:set number: to show number of lines inside file
+:n	: to go to speicif line 
+yy	: to copy a line
+10yy	: to copy 10 lines
+p	: to paste
+5pp	: to paste 5 times
+dd	: to delete 
+10 dd	: to delete 10 lines
+u	: undo
+ctrl r	: redo
+/word	: to search for a word
+
+=========================================
+
+PERMISSIONS:
+
+
+-rw-r--r-- 1 root root 0 Jul 18 03:53 file1
+
+FILE TYPE:
+-	: Regular file
+b	: Blocked file
+c	: character file
+d	: directory 
+l	: link file
+
+PERMISSION:
+
+rw-r--r--
+
+r	: read 	: 4
+w	: write	: 2
+x	: executable: 1
+
+METHOD-1: chmod 567 file1
+METHOD-2: chmod u=rwx,g=rw,o=rx file2
+
+
+
+GREP: Global regular expression print
+to search the words in a file.
+
+grep raham file1: to search for raham word
+grep raham file1 -i: to search for raham word (-i: avoid case sensitive)
+grep raham file1 -ic: to count for raham word (-c: count)
+grep raham file1 -v: to print lines without raham word (-v: aviod)
+grep 'word1\|word2\|word3' file1
+cat file1 | grep raham : 
+| : pipe symbol: here 1st commnd is the input for second command.
+
+
+========================================================
+
+SED: STREAM EDITOR
+to used to replace the words in file.
+
+sed 's/word1/word2/' file1	: to replace word1 with word2
+sed 's/devops/aws/;s/hyd/mumbai/' file1 : to replace multipe words 
+sed '2c abc' file1		: to replace a line
+sed -n '5,12p' file1		: to print from line 5 to 12
+sed -n '10p' file1		: to print line 10
+
+inside file:
+
+:%s/word1/word2/	: to replace word1 with word2 
+:%s/word1/word2/g	: to replace word1 with word2 if we have repeted words
+
+
+users & groups:
+to work with server we need to login as user.
+
+
+ec2-user : default
+root	: admin (he has all permissions)
+
+useradd raham	: to create user
+cat /etc/passwd : to list users
+passwd raham	: to set password
+
+
+
+1. it will not be exposed.
+2. username will not be given as password.
+3. min 8 charc
+
+
+NORMAL USER TO SUPER USER:
+
+useradd raham
+passwd raham
+visudo -- > :100 -- > yy & p -- > root=raham -- > save 
+su - raham
+sudo useradd vijay
+
+
+==============================================
+
+GIT: GLOBAL INFORMATION TRACKER.
+
+VCS: VERSION CONTROL SYSTEM
+it will keep the code separately for each version.
+
+v-1	: 100 lines --- > store (repo-1)
+v-2	: 200 lines --- > store (repo-2)
+v-3	: 300 lines --- > store (repo-3)
+
+REPO: It is a folder where we store our code.
+index.html: it is a basic file for every application
+
+v1 --- > index.html
+v2 --- > index.html
+v3 --- > index.html 
+
+
+INTRO:
+Git is used to track the files.
+It will maintain multiple versions of the same file.
+It is platform-independent.
+It is free and open-source.
+They can handle larger projects efficiently.
+It is 3rd generation of vcs.
+it is written on c programming
+it came on the year 2005
+
+
+CVCS: CENTRALIZED VERSION CONTROL SYSTEM
+EX: SVN: it can store code on a single repo.
+
+DVCS: DISTRIBUTED VERSION CONTROL SYSTEM
+EX: GIT: it can store code on Multiple repo.
+
+
+ROLLBACK: Going back to the previous version of the application.
+
+
+STAGES:
+WORKING DIRECTORY: where we write our source code.
+STAGING AREA: we track files here.
+REPOSITORY: where we store tracked source code
+
+
+WORKING WITH GIT:
+create a ec2 server:
+mkdir swiggy
+cd swiggy
+
+yum install git -y  [yum=pkg manager, install=action, git=pkg name -y=yes]
+git -v	: to check version
+git init : to install .git (local repo)
+
+
+To create file	: vim index.html (content is opt)
+to check status	: git status
+to track file	: git add index.html
+to check status	: git status
+to store file	: git commit -m "commit-1" index.html
+
+create a file -- > add -- > commit 
+
+to show commits	: git log
+to show	last 2 commits: git log -2
+to show commits in single line: git log -2 --oneline
+
+
+=================================================
+
+CONFIGURING USER AND EMAIL:
+
+git config user.name "raham"
+git config user.email "raham@gmail.com"
+
+
+NOTE: this user and email will be replicated to new commits only.
+
+
+Git show: used to show the files which are attached to commits.
+git log --online
+git show commit_id
+
+
+BRANCHES:
+It is a individaual line of developemt.
+developers write the code on branches.
+initally baraches we create on git.
+after write source code on git we push to github.
+Default barnch is Master.
+Note: when we do a iniatl commit the only default branch will be created.
+
+Dev -- > Git (Movies branch) -- > code -- > github
+
+
+COMMNDS:
+git branch		: to list the branches
+git branch movies	: to create the branch movie
+git checkout movies	: to switch blw the branches
+git checkout -b dth	: to create and switch dth at same time
+git branch -m old new	: to rename a branch
+git branch -D recharge	: to delete a branch
+
+NOTE: to recover the delete branch
+
+GIT PULL: it will get the branch from github to git
+git pull origin recharge
+git checkout recharge
+
+
+
+
+PROCESS:
+git branch movies
+git checkout movies
+touch movies{1..5}
+git add movies*
+git commit -m "dev-1" movies*
+
+
+NOW PUSH THE CODE TO GITHUB:
+create a repo
+git remote add origin https://github.com/nayakdebasish091/paytm.git
+
+PUSH: to send files form git to github
+local: .git & remote: paytm.git
+git push origin movies
+username:
+password:
+
+TOKEN GENERATION: 
+account -- > settings -- >developer settings -- > PAT -- > Classic -- > Generate new token -- > classic -- > name: abcd -- > select 6 options -- > generate 
+
+Note: it will be visible only once
+
+
+
+
+
+create branch
+switch to branch
+files
+add
+commit
+push
+
+GIT IGNORE: it will not track the files which we want.
+touch java{1..5}
+vim .gitignore
+j* -- > :wq
+git status
+you cant see the files now 
+
+
+GIT RESTORE: to untrack the tracked file
+touch raham
+git status
+git add
+git status
+git restore --staged raham
+git status
+
+
+GET BACK THE DELETED FILE:
+Note: we can restore only tracked files.
+
+
+HISTORY:
+
+ 1  df -h
+    2  cd cd
+    3  cd /
+    4  cd /
+    5  du -sh
+    6  ll
+    7  cd
+    8  yum install git maven docker httpd tree htop -y
+    9  touch file{1..10
+   10  rm -rf file\{1..10
+   11  rm -rf file\{1..10}
+   12  ll
+   13  touch file{1..10}
+   14  vim file1
+   15  rm -rf *
+   16  mkdir paytm
+   17  cd paytm/
+   18  ls -al
+   19  git init
+   20  touch index.html
+   21  git add index.html
+   22  git config user.name "raham"
+   23  git config user.email "raham@gmail.com"
+   24  git commit -m "commit-1" index.html
+   25  git branch
+   26  git branch movies
+   27  git branch
+   28  git checkout movies
+   29  touch movies{1..5}
+   30  git add movies*
+   31  git commit -m "dev-1" movies*
+   32  git remote add origin https://github.com/RAHAMSHAIK007/1045paytm.git
+   33  git push origin movies
+   34  git branch
+   35  git branch train
+   36  git branch
+   37  git checkout train
+   38  git branch
+   39  touch train{1..5}
+   40  git add train*
+   41  git commit -m "dev-2" train*
+   42  git push origin train
+   43  ll
+   44  git branch
+   45  git checkout -b dth
+   46  git branch
+   47  ll
+   48  touch dth{1..5}
+   49  git add dth*
+   50  git commit -m "dev-3" dth*
+   51  git push origin dth
+   52  git checkout -b recharge
+   53  touch recharge{1..5}
+   54  git add recharge*
+   55  git commit -m "dev-4" recharge*
+   56  git push origin recharge
+   57  ll
+   58  git status
+   59  touch java{1..5}
+   60  git status
+   61  vim .gitignore
+   62  git status
+   63  vim .gitignore
+   64  git status
+   65  ll
+   66  git add *
+   67  ll
+   68  git status
+   69  touch python{1..5}
+   70  git status
+   71  vim .gitignore
+   72  git status
+   73  ll
+   74  git branch
+   75  git branch -m master raham
+   76  git branch
+   77  git branch -m raham main
+   78  git branch
+   79  git branch -m main master
+   80  git branch
+   81  ll
+   82  git push origin movies
+   83  git branch
+   84  git branch -D recharge
+   85  git checkout movies
+   86  git branch -D recharge
+   87  git branch
+   88  git pull origin recharge
+   89  git branch
+   90  git checkout recharge
+   91  git branch
+   92  ll
+   93  git branch
+   94  git branch -D movies
+   95  git branch
+   96  git pull origin movies
+   97  ll
+   98  git branch
+   99  git checkout movies
+  100  git branch
+  101  touch raham
+  102  git status
+  103  git add raham
+  104  git status
+  105  git restore --staged raham
+  106  git status
+  107  git add raham
+  108  git status
+  109  git restore --staged raham
+  110  git status
+  111  rm -f raham
+  112  git restore raham
+  113  ll
+  114  git status
+  115  cd
+  116  mkdir abcd
+  117  cd abcd/
+  118  touch file1
+  119  git add file1
+  120  git init
+  121  git add file1
+  122  ll
+  123  rm -f file1
+  124  git restore file1
+  125  ll
+  126  touch file2
+  127  git status
+  128  rm -f file
+  129  rm -f file2
+  130  git restore file2
+  131  ll
+  132  touch file{1..100}
+  133  git status
+  134  git add *
+  135  git status
+  136  rm -f *
+  137  git restore *
+  138  ls
+  139  cd
+  140  cd paytm/
+  141  git push origin train
+  142  git push origin master movies
+  143  history
+
+=================================================
+MERGE:
+adding the files blw one branch to another branch
+git merge branch_name
+
+REBASE:
+adding the files blw one branch to another branch
+git rebase branch_name
+
+
+MERGE VS REBASE:
+merge will show files, rebase will not show files
+merge will not show branches, rebase will show branches
+merge will show entire history, rebase will not.
+
+
+STASH: to hide the files which are not comitted.
+note: file need to be tracked but not comitted
+
+
+touch file2
+git stash
+git stash apply
+git stash list
+git stash clear
+git stash pop (clears last stash)
+
+
+
+HISTORY:
+
+ 1  cd p
+    2  ll
+    3  cd swiggy/
+    4  ll
+    5  git branch
+    6  git branch -D master
+    7  git branch -D dth
+    8  ll
+    9  git branch
+   10  git pull origin dth
+   11  cd
+   12  git clone https://github.com/RAHAMSHAIK007/1045paytm.git
+   13  ll
+   14  cd 1045paytm/
+   15  git branch
+   16  git checkout train
+   17  git branch
+   18  git checkout dth
+   19  git branch
+   20  git checkout recharge
+   21  ll
+   22  git branch
+   23  git branch -D dth
+   24  git branch
+   25  git pull origin dth
+   26  git checkout dth
+   27  git branch
+   28  cd
+   29  mkdir abcd
+   30  cd abcd/
+   31  git init
+   32  ll
+   33  touch java1
+   34  git add java1
+   35  git commit -m "java commits" java1
+   36  ll
+   37  touch java2
+   38  git status
+   39  git add java2
+   40  git status
+   41  ll
+   42  git stash
+   43  ll
+   44  git stash apply
+   45  ll
+   46  git stash
+   47  ll
+   48  git stash apply
+   49  ll
+   50  git stash list
+   51  git stash clear
+   52  git stash list
+   53  git stash -h
+   54  git stash --help
+   55  git stash list
+   56  git stash
+   57  git stash list
+   58  history
+
+
