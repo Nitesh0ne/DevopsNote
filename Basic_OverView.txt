@@ -1,5 +1,5 @@
 DAY 1:
-WHY DEVOPS: To deliver application very speedly.
+WHY DEVOPS: To deliver application very Speedily.
 SDLC: software development lifecycle.
 DEPLOYMENT: Process of installing application in server.
 PLAN-->CODE-->BUILD-->TEST-->DEPLOY-->OPERATE-->MONITOR
@@ -20,26 +20,25 @@ SOFTWARE ARCHITECTURES:
 
 TIER: SERVER: LAYER
 
-SERVER: servers the services to the end user.
+SERVER: servers provide services to the end user.
 1. web server: 
 2. app server:
-3. db server:
+3. DB server:
 
 
 WEB SERVER:
-it is also called as the presentation layer.
-to show the application.
-who works: ui/ux developers
+It is also called as the presentation layer.
+To show the application.
+who works: UI/UX developers
 what they use: web technologies
-ex: html, css, js
+ex: HTML, CSS, JS
 
 APP SERVER: 
 To use the application.
 also called the logic layer
 who work: backend developers
 what they use: programming
-ex: java, python, c, c++, .net, go --------
-
+ex: java, python, c, c++, .NET, go --------
 
 DB SERVER:
 It also called as db layer.
@@ -57,17 +56,14 @@ EX: VLC MEDIA PLAYER
 
 TWO-TIER ARCHITECTURE: CLIENT-SERVER APPLICATION
 THE APP WILL WORK ON A LOCAL LAPTOP.
-LOCAL: PRESENTATION, LOGIC    DB: INTERNET 
+LOCAL:PRESENTATION, LOGIC    DB: INTERNET 
 IT WILL REQ ANY INTERNET CONNECTION.
 EX: BANKING APPLICATIONS
-
 
 THREE-TIER: WEB APPLICATION (REALTIME)
 APPLICATION NO NEED TO BE ON LOCAL.
 EVERYTHING WE CAN USE FROM THE INTERNET.
 EX: WHATSAPP, YOUTUBE, INSTA -----
-
-
 
 DURATION: 2.5 MONTHS
 TIMINGS: 10:45 TO 12:15 
@@ -86,9 +82,11 @@ PERKS:
 6. INTRA PERSONAL SKILLS 
 
 ==========================================================
+DAY 3:
 
 AGENDA: CREATE A WEBSERVER AND SHOW THE LIVE ENV 
-SERVER: SERVER SERVS THE SERVICES TO END USER.
+SERVER: SERVER SERVS THE SERVICES TO END USER. || RESPONSE TO THE REQUEST OF CLIENT || REQUEST <--> RESPONSE PRINCIPLE.
+
 WEB SERVER: TO SHOW THE APPLICATION
 
 TO CREATE SERVER WE NEED TO HAVE CLOUD ACCOUNT.
@@ -102,19 +100,19 @@ SERVER = COMPUTER
 3. INSTANCE_TYPE = CPU & RAM
 4. KEY_PAIR = LOGIN (public=aws, private=user)
 5. NETWORK = VPC, SECURITY GROUPS (port numbers=0-65535)
-6. STORAGE = 8 GB - 16 TB
+6. STORAGE = 8 GB - 16 TB (200 GB will be enough on most of the cases in real time)
 7. SUMMARY = TO REVIEW 
 
 SSH= SECURE SHELL (22) - TO COMMUNICATE WITH SERVERS
 
 ===========================================================
+DAY 4
 
 OS = USED TO COMMUNICATE WITH SERVERS.
-
 TYPES:
 1. WINDOWS
 2. LINUX
-3. MACOS
+3. UNIX(MACOS)
 
 WHY TO USE LINUX:
 SMART PHONE
@@ -133,52 +131,61 @@ MODES:
 2. CLI	: COMMAND LINE INTERFACE
 
 COMMANDS:
-sudo -i		: to switch from ec2-user to root user
-sudo su -	: to switch from ec2-user to root user
-sudo su		: to switch from ec2-user to root user
-logout (ctrl d)	: to switch from root to ec2-user
-cat /proc/cpuinfo: to show cpu information
-lscpu: to show cpu information
-cat /proc/meminfo: to show memory information
-lsmem: to show memory information
-fdisk -l: to show the volume information
-lsblk: to show the volume information
-ifconfig/ ip addr/ ip addr show/ hostname -i: to show ip address
-clear (ctrl l): to clear the screen
+sudo -i						: to switch from ec2-user to root user
+sudo su -					: to switch from ec2-user to root user
+sudo su						: to switch from ec2-user to root user
+logout (ctrl d)					: to switch from root to ec2-user
+cat /proc/cpuinfo				: to show CPU information
+lscpu						: to show CPU information
+cat /proc/meminfo				: to show memory information
+lsmem						: to show memory information
+fdisk -l					: to show the volume information
+lsblk						: to show the volume information
+df -h 
+ifconfig
+ip addr 
+ip addr show
+hostname -i					: to show Ip address
+clear (ctrl l)					: to clear the screen
 
+interview tips: provide multiple answer, listen carefully , giving answer slowly right is  better than giving answer fast wrong. so listen carefully to the question and give answer slowly.
 
+==========================================================
+DAY 5: 
 
 FILE COMMANDS:
-touch file	: to create  a file
-ls/11		: to show list of files
-cat file1	: to show the content
-cat>>file1	: to insert the content
-enter ctrl d	: to save and exit form file
-cp file1 file2	: copies the content form file1 to file2
-mv file1 file2	: to renmae file1 to file2
-rm file1	: to remove a file
-rm file1 -f	: to remove a file forcefully
-rm * -f		: to remove all files forcefully
-touch file{1..100}: to create 100 files at a time
-cat file1 >>file2 : to copy content from file1 to file2 (without overriding)
+touch file		: to create  a file
+ls 			: to show list of files and directory 
+cat file1		: to show the content
+cat>>file1		: to insert the content
+enter ctrl d		: to save and exit form file
+cp file1 file2		: copies the content form file1 to file2
+mv file1 file2		: to rename file1 to file2
+rm file1		: to remove a file
+rm file1 -f		: to remove a file forcefully
+rm * -f			: to remove all files forcefully
+touch file{1..100}	: to create 100 files at a time
+cat file1 >>file2 	: to copy content from file1 to file2 (without overriding)
 
-===========================================================
 
-HOW TO CHECK THE SERVER PERFOMANCE:
+HOW TO CHECK THE SERVER PERFOMANCE: troubleshooting performance
+note : if cpu utilization is 70% to 80% then it is not in our control.
 top 
-htop : yum install htop -y
 
-head file1	: shows first 10 lines a file
-head -5 file1	: shows first 5 lines a file
-head -15 file1	: shows first 15 lines a file
-tail file1	: shows bottom 10 lines a file
-tail -5 file1	: shows bottom 5 lines a file
-tail -15 file1	: shows bottom 15 lines a file
-sed -n '5,15p' file1: to print line 5 to 15 
-wc		: to show lines, words and charcters.
+htop 			: yum install htop -y
+
+head  file1		: shows first 10 lines a file
+head -5 file1		: shows first 5 lines a file
+head -15 file1		: shows first 15 lines a file
+tail file1		: shows bottom 10 lines a file
+tail -5 file1		: shows bottom 5 lines a file
+tail -15 file1		: shows bottom 15 lines a file
+sed -n '5,15p' file1	: to print line 5 to 15 
+wc			: to show lines, words and characters.
+
 
 ===================================================================
-
+DAY 6
 EDITORS: to edit the files.
 
 types:
@@ -221,7 +228,6 @@ u	: undo
 ctrl r	: redo
 /word	: to search for a word
 
-=========================================
 
 PERMISSIONS:
 
@@ -345,9 +351,9 @@ ROLLBACK: Going back to the previous version of the application.
 
 
 STAGES:
-WORKING DIRECTORY: where we write our source code.
-STAGING AREA: we track files here.
-REPOSITORY: where we store tracked source code
+WORKING DIRECTORY	: where we write our source code.
+STAGING AREA		: we track files here.
+REPOSITORY		: where we store tracked source code
 
 
 WORKING WITH GIT:
@@ -356,8 +362,8 @@ mkdir swiggy
 cd swiggy
 
 yum install git -y  [yum=pkg manager, install=action, git=pkg name -y=yes]
-git -v	: to check version
-git init : to install .git (local repo)
+git -v		: to check version
+git init 	: to install .git (local repo)
 
 
 To create file	: vim index.html (content is opt)
@@ -368,12 +374,13 @@ to store file	: git commit -m "commit-1" index.html
 
 create a file -- > add -- > commit 
 
-to show commits	: git log
-to show	last 2 commits: git log -2
-to show commits in single line: git log -2 --oneline
+to show commits			: git log
+to show	last 2 commits		: git log -2
+to show commits in single line	: git log -2 --oneline
 
 
 =================================================
+DAY 9:
 
 CONFIGURING USER AND EMAIL:
 
