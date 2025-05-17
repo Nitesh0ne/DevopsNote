@@ -1,0 +1,202 @@
+DAY 4
+
+OS = USED TO COMMUNICATE WITH SERVERS.
+TYPES:
+1. WINDOWS
+2. LINUX
+3. UNIX(MACOS)
+
+WHY TO USE LINUX:
+SMART PHONE
+SUPER COMPUTER
+SMART WATCHES/TVS
+
+ADVANTAGES:
+1. FREE AND OPEN SOURCE
+2. SECURITY
+3. PERFOMANCE IS TOO GOOD.
+4. MULTI USER BASED.
+5. MULTI TASKING.
+
+MODES:
+1. GUI	: GRAPHICAL USER INTERFACE
+2. CLI	: COMMAND LINE INTERFACE
+
+COMMANDS:
+sudo -i						: to switch from ec2-user to root user
+sudo su -					: to switch from ec2-user to root user
+sudo su						: to switch from ec2-user to root user
+logout (ctrl d)					: to switch from root to ec2-user
+cat /proc/cpuinfo				: to show CPU information
+lscpu						: to show CPU information
+cat /proc/meminfo				: to show memory information
+lsmem						: to show memory information
+fdisk -l					: to show the volume information
+lsblk						: to show the volume information
+df -h
+ifconfig
+ip addr 
+ip addr show
+hostname -i					: to show Ip address
+clear (ctrl l)					: to clear the screen
+
+interview tips: provide multiple answer, listen carefully , giving answer slowly right is  better than giving answer fast wrong. so listen carefully to the question and give answer slowly.
+
+==========================================================
+DAY 5: 
+
+FILE COMMANDS:
+touch file		: to create  a file
+ls 			: to show list of files and directory
+cat file1		: to show the content
+cat>>file1		: to insert the content
+enter ctrl d		: to save and exit form file
+cp file1 file2		: copies the content form file1 to file2
+mv file1 file2		: to rename file1 to file2
+rm file1		: to remove a file
+rm file1 -f		: to remove a file forcefully
+rm * -f			: to remove all files forcefully
+touch file{1..100}	: to create 100 files at a time
+cat file1 >>file2 	: to copy content from file1 to file2 (without overriding)
+
+
+HOW TO CHECK THE SERVER PERFOMANCE: troubleshooting performance
+note : if cpu utilization is 70% to 80% then it is not in our control.
+top 
+
+htop 			: yum install htop -y
+
+head  file1		: shows first 10 lines a file
+head -5 file1		: shows first 5 lines a file
+head -15 file1		: shows first 15 lines a file
+tail file1		: shows bottom 10 lines a file
+tail -5 file1		: shows bottom 5 lines a file
+tail -15 file1		: shows bottom 15 lines a file
+sed -n '5,15p' file1	: to print line 5 to 15 
+wc			: to show lines, words and characters.
+
+
+===================================================================
+DAY 6
+EDITORS: to edit the files.
+
+types:
+1. VIM/vi
+2. nano
+
+i	: to insert the content
+esc	: to come outof inster mode
+
+1. command mode
+2. insert mode
+3. save mode
+
+3. SAVE MODE:
+:w	: to save
+:q	: to quit
+:wq	: save and quit
+:wq!	: save and quit forcefully
+
+2. INSERT MODE:
+i	: to insert command
+A	: end of line
+I	: starting of line
+O	: create new line above existing
+o	: to create new line below existing.
+
+1. COMMAND MODE:
+
+gg	: top of file
+shift g	: bottom of file
+:set number: to show number of lines inside file
+:n	: to go to speicif line 
+yy	: to copy a line
+10yy	: to copy 10 lines
+p	: to paste
+5pp	: to paste 5 times
+dd	: to delete 
+10 dd	: to delete 10 lines
+u	: undo
+ctrl r	: redo
+/word	: to search for a word
+
+
+PERMISSIONS:
+
+
+-rw-r--r-- 1 root root 0 Jul 18 03:53 file1
+
+FILE TYPE:
+-	: Regular file
+b	: Blocked file
+c	: character file
+d	: directory 
+l	: link file
+
+PERMISSION:
+
+rw-r--r--
+
+r	: read 	: 4
+w	: write	: 2
+x	: executable: 1
+
+METHOD-1: chmod 567 file1
+METHOD-2: chmod u=rwx,g=rw,o=rx file2
+
+
+
+GREP: Global regular expression print
+to search the words in a file.
+
+grep nitesh file1: to search for nitesh word
+grep nitesh file1 -i: to search for nitesh word (-i: avoid case sensitive)
+grep nitesh file1 -ic: to count for nitesh word (-c: count)
+grep nitesh file1 -v: to print lines without nitesh word (-v: aviod)
+grep 'word1\|word2\|word3' file1
+cat file1 | grep nitesh : 
+| : pipe symbol: here 1st commnd is the input for second command.
+
+
+========================================================
+
+SED: STREAM EDITOR
+to used to replace the words in file.
+
+sed 's/word1/word2/' file1	: to replace word1 with word2
+sed 's/devops/aws/;s/hyd/mumbai/' file1 : to replace multipe words 
+sed '2c abc' file1		: to replace a line
+sed -n '5,12p' file1		: to print from line 5 to 12
+sed -n '10p' file1		: to print line 10
+
+inside file:
+
+:%s/word1/word2/	: to replace word1 with word2 
+:%s/word1/word2/g	: to replace word1 with word2 if we have repeted words
+
+
+users & groups:
+to work with server we need to login as user.
+
+
+ec2-user : default
+root	: admin (he has all permissions)
+
+useradd nitesh	: to create user
+cat /etc/passwd : to list users
+passwd nitesh	: to set password
+
+
+
+1. it will not be exposed.
+2. username will not be given as password.
+3. min 8 charc
+
+
+NORMAL USER TO SUPER USER:
+
+useradd nitesh
+passwd nitesh
+visudo -- > :100 -- > yy & p -- > root=nitesh -- > save 
+su - nitesh
+sudo useradd vijay
