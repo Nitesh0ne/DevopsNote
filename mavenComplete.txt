@@ -34,12 +34,12 @@ with the plugins we can use tools without installing them.
 GOAL: its a command used to perform task.
 MAVEN follows a lifecycle
 
-mvn compile	: to compile the source code
-mvn test	: to test the code
-mvn package	: to create artifact (project directory)
-mvn install	: to create artifact (maven home dir .m2)
-mvn clean package: to perform entire goals 
-mvn clean	: to delete target
+mvn compile	            : to compile the source code
+mvn test	            : to test the code
+mvn package	            : to create artifact (project directory)
+mvn install	            : to create artifact (maven home dir .m2)
+mvn clean package       : to perform entire goals 
+mvn clean	            : to delete target
 
 
 maven			ant
