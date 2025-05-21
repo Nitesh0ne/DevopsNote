@@ -694,8 +694,6 @@ HISTORY:
   246  ansible-galaxy search --author alikins
   247  history
 
-===============================================
-
 ansible_hostname
 ansible_memfree_mb
 ansible_memtotal_mb
@@ -716,7 +714,6 @@ JINJA2 TEMPLATE: used to get the customized op, here its a text file which can e
 
 LOOKUPS: this module used to get data from files, db and key-values
 
-
 - hosts: dev
   vars:
     a: "{{lookup('file', '/root/creds.txt') }}"
@@ -727,7 +724,7 @@ LOOKUPS: this module used to get data from files, db and key-values
 cat creds.txt
 user=nitesh
 
-STRATAGIES:
+ANSIBLE STRATAGIES:
 
 LINEAR: execute tasks sequencially
 FREE: execute all tasks on all node at same time
@@ -874,3 +871,6 @@ HISTORY:
   346  vim tomcat.yml 
   347  ansible-playbook tomcat.yml 
   348  history
+
+
+Note : Ginga2 TEMPLATE
