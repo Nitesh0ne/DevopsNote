@@ -392,7 +392,6 @@ communication blw master and slave is ssh.
 Here we need to install agent (java-11).
 slave can use any platform.
 label = way of assingning work for slave.
-
 SETUP:
 #STEP-1 : Create a server and install java-11
 amazon-linux-extras install java-openjdk11 -y
