@@ -69,15 +69,17 @@ We can create this pod in two ways,
 1. Imperative(command) 
 2. Declarative (Manifest file)
 
-IMPERATIVE: 
-  kubectl run pod1 --image rahamshaik/paytmtrain:latest
-  kubectl get po/pod/pods
-  kubectl get po/pod/pods -o wide
-  kubectl describe pod pod1
-  kubectl delete pod pod1
+IMPERATIVE: ()
+  kubectl run <pod_name> --image nginx  : Create the pod 
+  kubectl get po/pod/pods               : list the running pod
+  kubectl get po/pod/pods -o wide       : list the running pod with  more information
+  kubectl describe pod <pod_name>       : Show the metadata pod 
+  kubectl delete pod <pod_name>         : delete the pod
+  kubectl exec -it <pod_name> -- bash    : To go inside the pod  
+  kubectl delete pod --all                : delete all pod 
 
 Declarative:
-vim abc.yml
+vim test.yml
 
 apiVersion: v1
 kind: Pod
@@ -88,18 +90,18 @@ spec:
     - image: nginx
       name: cont1
 
-kubectl create -f abc.yml
+kubectl create -f test.yml
 kubectl get po/pod/pods
 kubectl get po/pod/pods -o wide
-kubectl describe pod pod1
-kubectl delete pod pod1
+kubectl describe pod <pod_name>
+kubectl delete pod <pod_name>
+
+Note : Conatiner inside the pod share same network or same IP. Usually we do not create multiple container in a single pod. but id we create the multiple container  on same pod then also  all the container shared same IP address.
 ============================================================
 DAY 35:
-
 DRAWBACK:
-if we delete the pod we cant retrive.
-all the load will be handled by single pod.
-
+If we delete the pod we cant retrive.
+All the load will be handled by single pod.
 
 REPLICA SET:
 it will create same pod of multiple replicas.
