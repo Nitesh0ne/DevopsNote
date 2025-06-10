@@ -16,31 +16,29 @@ it communicate with pods.
 
 COMPONENTS:
 MASTER NODE:
-1. API SERVER: its for communicating with cluster, it takes command executes and gives output.
-2. ETCD: its a DB od cluster, all the cluster info will store here.
-3. SCHEDULER: schedules pods on worker nodes, based on hardware resources.
-4. CONTROLLER: used to control the k8s objects.
-1. cloud controllers
-2. kube controllers
+1. API SERVER        : Its for communicating with cluster, it takes command executes and gives output.
+2. ETCD              : Its a DB od cluster, all the cluster info will store here.
+3. SCHEDULER         : Schedules pods on worker nodes, based on hardware resources. (Master Node assign the pod  to worker based on the  highest hardware capacity)
+4. CONTROLLER        : Used to control the k8s objects.
+1. cloud controllers : Work for cloud 
+2. kube controllers  : Work for on-premise
 
 WORKER NODE:
-KUBELET 	: its an agent used to communicate with master.
-KUBEPROXY : it deals with nlw.
-POD       : its a group of containers.
-
+KUBELET 	  : Its an agent used to communicate with master, tell master node event happen on worker  node
+KUBEPROXY  : It deals with nlw.
+POD        : Its a group of containers.
 
 There are multiple ways to setup kubernetes cluster.
-
 1.SELF MANAGER K8'S CLUSTER
-a.mini kube (single node cluster)
-b.kubeadm(multi node cluster)
-c. KOPS
+ a.mini kube (single node cluster) = For only development and testing phase
+ b.kubeadm  (multi node cluster)  =  For Creating Production Grade Cluster
+ c. KOPS 
 
 2. CLOUD MANAGED K8'S CLUSTER
-a. AWS EKS
-b. AZURE AKS
-c. GCP GKS
-d. IBM IKE
+  a. AWS EKS
+  b. AZURE AKS
+  c. GCP GKS
+  d. IBM IKE
 
 MINIKUBE:
 It is a tool used to setup single node cluster on K8's. 
@@ -58,8 +56,6 @@ REQUIRMENTS:
 Internet connection
 Container or virtual machine manager, such as: Docker.
 
-
-
 PODS:
 It is a smallest unit of deployment in K8's.
 It is a group of containers.
@@ -68,17 +64,17 @@ Mostly we can use single container inside a pod but if we required, we can creat
 when we create a pod, containers inside pods can share the same network namespace, and can share the same storage volumes .
 While creating pod, we must specify the image, along with any necessary configuration and resource limits.
 K8's cannot communicate with containers, they can communicate with only pods.
- We can create this pod in two ways, 
+ 
+We can create this pod in two ways, 
 1. Imperative(command) 
 2. Declarative (Manifest file)
 
-
 IMPERATIVE: 
-kubectl run pod1 --image rahamshaik/paytmtrain:latest
-kubectl get po/pod/pods
-kubectl get po/pod/pods -o wide
-kubectl describe pod pod1
-kubectl delete pod pod1
+  kubectl run pod1 --image rahamshaik/paytmtrain:latest
+  kubectl get po/pod/pods
+  kubectl get po/pod/pods -o wide
+  kubectl describe pod pod1
+  kubectl delete pod pod1
 
 Declarative:
 vim abc.yml
