@@ -436,6 +436,7 @@ HISTORY:
    43  history
 
 ==================================================================================================================
+Day 37:
 
 NAMESPACES:
 
@@ -453,9 +454,9 @@ we cant access the objects from one namespace to another namespace.
 TYPES:
 
 default           : Is the default namespace, all objects will create here only
-kube-node-lease   : it will store object which is taken from one namespace to another.
-kube-public	  : all the public objects will store here.      
-kube-system 	  : default k8s will create some objects, those are storing on this ns.
+kube-node-lease   : it will store object which is taken from one worker node  to another worker node.
+kube-public	      : all the public objects will store here.      
+kube-system 	    : default k8s will create some objects, those are storing on this ns.
 
 kubectl get pod -n kube-system	: to list all pods in kube-system namespace
 kubectl get pod -n default	: to list all pods in default namespace
@@ -477,9 +478,7 @@ we create roles and rolebind for the users.
 
 SERVICE: It is used to expose the application in k8s.
 
-TYPES:
-1. CLUSTERIP: It will work inside the cluster.
-it will not expose to outer world.
+
 
 apiVersion: apps/v1
 kind: Deployment
@@ -502,7 +501,12 @@ spec:
         image: rahamshaik/moviespaytm:latest
         ports:
           - containerPort: 80
----
+
+TYPES:
+1. CLUSTERIP: It will work inside the cluster.
+it will not expose to outer world.
+
+vi clusterip.yaml
 apiVersion: v1
 kind: Service
 metadata:
